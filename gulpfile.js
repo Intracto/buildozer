@@ -1,6 +1,8 @@
 'use strict';
 
 // Load plugins
+const yaml = require('js-yaml');
+const fs = require('fs');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
 const del = require('del');
@@ -11,9 +13,33 @@ const plumber = require('gulp-plumber');
 const postcss = require('gulp-postcss');
 const sass = require('gulp-sass');
 
-// Clean assets
+function getConfig (path) {
+	try {
+		return yaml.safeLoad(fs.readFileSync(path, 'utf8'));
+	} catch (e) {
+		return {};
+	}
+}
+
+// Merge default options with custom options
+const config = Object.assign(getConfig(require.resolve('./.slikrc')), getConfig(`${process.env.INIT_CWD}/.slikrc`));
+
+// Change working dir back to initial dir
+process.chdir(process.env.INIT_CWD);
+
+// Clean generated folders
 function clean() {
-	return del(['./assets/dest/']);
+	const folders = [];
+
+	// Add all dest files/folders to folders array
+	Object.values(config).forEach(function (type) {
+		type.forEach(function (value) {
+			folders.push(value.dest);
+		});
+	});
+
+	// And delete them
+	return del(folders);
 }
 
 // Optimize Images
@@ -40,13 +66,16 @@ function images() {
 }
 
 // CSS task
-function cssMin() {
-	return gulp
-		.src('./assets/src/scss/**/*.scss')
-		.pipe(plumber())
-		.pipe(sass({}))
-		.pipe(postcss([autoprefixer(), cssnano()]))
-		.pipe(gulp.dest('./assets/dest/css/'))
+function cssMin(cb) {
+	config.scss.forEach(function (scss) {
+		gulp
+			.src(scss.src)
+			.pipe(plumber())
+			.pipe(sass({}))
+			.pipe(postcss([autoprefixer(), cssnano()]))
+			.pipe(gulp.dest(scss.dest))
+	});
+	cb();
 }
 
 function css() {

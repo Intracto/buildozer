@@ -1,0 +1,6 @@
+scss:
+  - src: scss/**/*.scss
+    dest: dest/css
+img:
+  - src: img/**/*.{png,jpg,jpeg,gif,svg}
+    dest: dest/img

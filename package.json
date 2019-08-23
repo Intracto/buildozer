@@ -1,10 +1,10 @@
 {
-  "name": "boer",
+  "name": "slik",
   "version": "0.0.0",
   "description": "Simple tool to build your frontend.",
-  "main": "bin/boer.js",
+  "main": "bin/slik.js",
   "bin": {
-    "boer": "bin/boer.js"
+    "slik": "bin/slik.js"
   },
   "dependencies": {
     "autoprefixer": "^9.6.1",
@@ -33,10 +33,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MartijnCuppens/boer.git"
+    "url": "git+https://github.com/MartijnCuppens/slik.git"
   },
   "bugs": {
-    "url": "https://github.com/MartijnCuppens/boer/issues"
+    "url": "https://github.com/MartijnCuppens/slik/issues"
   },
-  "homepage": "https://github.com/MartijnCuppens/boer#readme"
+  "homepage": "https://github.com/MartijnCuppens/slik#readme"
 }
