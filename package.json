@@ -1,0 +1,56 @@
+{
+  "name": "buildozer",
+  "version": "0.0.0",
+  "description": "Simple tool to build your frontend.",
+  "main": "bin/buildozer.js",
+  "bin": {
+    "buildozer": "bin/buildozer.js"
+  },
+  "dependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "autoprefixer": "^9.6.1",
+    "chalk": "^2.4.2",
+    "cssnano": "^4.1.10",
+    "del": "^5.1.0",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-cli": "^2.2.0",
+    "gulp-imagemin": "^6.1.0",
+    "gulp-newer": "^1.4.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-postcss": "^8.0.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-terser": "^1.2.0",
+    "js-yaml": "^3.13.1",
+    "yargs": "^14.0.0"
+  },
+  "devDependencies": {
+    "xo": "^0.24.0"
+  },
+  "scripts": {
+    "test": "xo"
+  },
+  "files": [
+    "/lib",
+    "gulpfile.js",
+    ".buildozerrc"
+  ],
+  "engines": {
+    "node": ">=8"
+  },
+  "author": "Martijn Cuppens <martijn.cuppens@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Intracto/buildozer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Intracto/buildozer/issues"
+  },
+  "homepage": "https://github.com/Intracto/buildozer#readme",
+  "xo": {
+    "space": true
+  }
+}
