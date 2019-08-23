@@ -1,0 +1,39 @@
+{
+  "name": "boer",
+  "version": "0.0.0",
+  "description": "Simple tool to build your frontend.",
+  "main": "bin/boer.js",
+  "dependencies": {
+    "autoprefixer": "^9.6.1",
+    "cssnano": "^4.1.10",
+    "del": "^5.0.0",
+    "gulp": "^4.0.2",
+    "gulp-cli": "^2.2.0",
+    "gulp-imagemin": "^6.1.0",
+    "gulp-newer": "^1.4.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-postcss": "^8.0.0",
+    "gulp-sass": "^4.0.2",
+    "js-yaml": "^3.13.1",
+    "yargs": "^14.0.0"
+  },
+  "devDependencies": {
+    "xo": "^0.24.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": ">=8"
+  },
+  "author": "Martijn Cuppens <martijn.cuppens@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MartijnCuppens/boer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MartijnCuppens/boer/issues"
+  },
+  "homepage": "https://github.com/MartijnCuppens/boer#readme"
+}
