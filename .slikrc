@@ -4,3 +4,6 @@ scss:
 img:
   - src: img/**/*.{png,jpg,jpeg,gif,svg}
     dest: dest/img
+js:
+  - src: js/**/*.js
+    dest: dest/js

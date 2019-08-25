@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-if (process.argv.includes('build')) {
+if (process.argv.includes('build') || process.argv.includes('watch')) {
 	// Use gulpfile from the slik module
 	process.argv.push('--gulpfile');
 	process.argv.push(require.resolve('./../gulpfile.js'));
