@@ -17,27 +17,28 @@ if (process.argv.includes('build') || process.argv.includes('watch')) {
 			output: process.stdout
 		});
 
-		rl.question('.slikrc file already exists, do you want to overrride it? (yes/no) ', (answer) => {
+		rl.question('.slikrc file already exists, do you want to overrride it? (yes/no) ', answer => {
 			if (['y', 'yes'].includes(answer)) {
-				fs.copyFile(require.resolve('./../.slikrc'), destPath, (err) => {
+				fs.copyFile(require.resolve('./../.slikrc'), destPath, err => {
 					if (err) {
 						throw err;
 					}
+
 					console.log('.slikrc file created.');
 				});
 			}
+
 			rl.close();
 		});
-
 	} else {
-		fs.copyFile(require.resolve('./../.slikrc'), destPath, (err) => {
+		fs.copyFile(require.resolve('./../.slikrc'), destPath, err => {
 			if (err) {
 				throw err;
 			}
+
 			console.log('.slikrc file created.');
 		});
 	}
-
 } else {
-	console.log('No build')
+	console.log('No build');
 }
