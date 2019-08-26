@@ -10,4 +10,4 @@ Please note we have a code of conduct, please follow it in all your interactions
 1. Always create a fork from the `master` branch.
 2. If needed, update the README.md with details of changes.
 3. Do not increase the version numbers in any files. The project owner(s) will take care of this.
-4. Always run `npm test` before
+4. Always run `npm test` before opening a PR.
