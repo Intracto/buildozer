@@ -35,15 +35,15 @@ npm i slik -g
 
 Now you can use `slik build` to compile everything.
 
+## Commands
 
-
-## Build
+### Build
 
 ```shell
 slik build
 ```
 
-The build command can be used for production environments. The build command:
+The build task can be used for production environments. The build command:
 - Compiles Sass to css
 - Use autoprefix for vendor prefixing
 - Minifies the css output
@@ -51,18 +51,57 @@ The build command can be used for production environments. The build command:
 - Compiles ES6 to ES5
 - Minifies js
 
-## Watch
+### Watch
 
 ```shell
 slik watch
 ```
 
-The build command can be used for production environments. The build command:
+The watch task will watch the source files for changes and rebuild a taks when a change is detected:
+- Clean all dest folders
 - Compiles Sass to css
 - Use autoprefix for vendor prefixing
 - Add scss souremaps
 - Minifies images and svg
 - Compiles ES6 to ES5
+
+### CSS
+
+```shell
+slik img
+```
+
+Only run css related tasks:
+- Compiles Sass to css
+- Use autoprefix for vendor prefixing
+- Minifies the css output
+
+### Img
+
+```shell
+slik img
+```
+
+Only run image related tasks:
+- Minifies images and svg
+
+### JS
+
+```shell
+slik js
+```
+
+Only run javascript related tasks:
+- Compiles ES6 to ES5
+- Minifies js
+
+### Clean
+
+```shell
+slik clean
+```
+
+Clean all dest folders.
 
 
 ## Default folder structure
@@ -101,7 +140,3 @@ project/
         ├── logo.svg
         └── …
 ```
-
-## Why slik?
-
-Slik is the Dutch translation of gulp, on which slik is build on.
