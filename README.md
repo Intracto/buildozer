@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/MartijnCuppens/buildozer/develop/rfs.svg?sanitize=true" alt="RFS logo" width="96" height="96">
+  <img src="https://raw.githubusercontent.com/MartijnCuppens/buildozer/develop/.github/buildozer.svg?sanitize=true" alt="RFS logo" width="96" height="96">
 </p>
 
 Buildozer is a simple build system to compile Sass and minify images, SVGs or javascript that works out of the box.
