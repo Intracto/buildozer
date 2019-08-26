@@ -146,3 +146,22 @@ project/
 
 ## Using your own folder structure
 
+Buildozer uses a `.buildozerrc` configuration file which uses the yaml syntax and defines which paths are used. By default, this file looks like this:
+
+```yaml
+scss:
+  - src: scss/**/*.scss
+    dest: dest/css
+img:
+  - src: img/**/*.{png,jpg,jpeg,gif,svg}
+    dest: dest/img
+js:
+  - src: js/**/*.js
+    dest: dest/js
+```
+
+If you want to configure your own paths, you can run `buildozer config` to generate a `.buildozerrc` in your folder and change the paths however you like.
+
+## Thanks
+
+[![Intracto](https://raw.githubusercontent.com/MartijnCuppens/buildozer/develop/.github/intracto.svg?sanitize=true)](https://www.intracto.com/?utm_source=github&utm_campaign=buildozer).
