@@ -1,4 +1,8 @@
-Slik is a simple build system to compile Sass and minify images, SVGs or javascript which works out of the box.
+<p align="center">
+  <img src="https://raw.githubusercontent.com/MartijnCuppens/buildozer/develop/rfs.svg?sanitize=true" alt="RFS logo" width="96" height="96">
+</p>
+
+Buildozer is a simple build system to compile Sass and minify images, SVGs or javascript that works out of the box.
 
 ## Installation
 
@@ -8,39 +12,39 @@ TODO: publish on npm
 
 ```shell
 # With npm
-npm i slik
+npm i buildozer
 
 # Or install with yarn
-yarn add slik
+yarn add buildozer
 ```
 
 Once installed, scripts can be added to your `package.json`:
 
 ```json
 "scripts" : {
-  "build": "slik build",
-  "watch": "slik watch"
+  "build": "buildozer build",
+  "watch": "buildozer watch"
 }
 ```
 
-Now `npm run build` or `npm run watch` can be executed to compile everything. If you're using `yarn`, you don't need to add scripts to your package file because you can just run `yarn slik build`.
+Now `npm run build` or `npm run watch` can be executed to compile everything. If you're using `yarn`, you don't need to add scripts to your package file because you can just run `yarn buildozer build`.
 
 ### Global
 
 If you want to use the commands globally, add the `-g` parameter:
 
 ```shell
-npm i slik -g
+npm i buildozer -g
 ```
 
-Now you can use `slik build` to compile everything.
+Now you can use `buildozer build` to compile.
 
 ## Commands
 
 ### Build
 
 ```shell
-slik build
+buildozer build
 ```
 
 The build task can be used for production environments. The build command:
@@ -54,7 +58,7 @@ The build task can be used for production environments. The build command:
 ### Watch
 
 ```shell
-slik watch
+buildozer watch
 ```
 
 The watch task will watch the source files for changes and rebuild a taks when a change is detected:
@@ -68,7 +72,7 @@ The watch task will watch the source files for changes and rebuild a taks when a
 ### CSS
 
 ```shell
-slik img
+buildozer img
 ```
 
 Only run css related tasks:
@@ -79,7 +83,7 @@ Only run css related tasks:
 ### Img
 
 ```shell
-slik img
+buildozer img
 ```
 
 Only run image related tasks:
@@ -88,7 +92,7 @@ Only run image related tasks:
 ### JS
 
 ```shell
-slik js
+buildozer js
 ```
 
 Only run javascript related tasks:
@@ -98,11 +102,10 @@ Only run javascript related tasks:
 ### Clean
 
 ```shell
-slik clean
+buildozer clean
 ```
 
 Clean all dest folders.
-
 
 ## Default folder structure
 
@@ -140,3 +143,6 @@ project/
         ├── logo.svg
         └── …
 ```
+
+## Using your own folder structure
+

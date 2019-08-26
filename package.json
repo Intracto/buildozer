@@ -1,10 +1,10 @@
 {
-  "name": "slik",
-  "version": "0.0.0",
+  "name": "buildozer",
+  "version": "0.0.0-alpha",
   "description": "Simple tool to build your frontend.",
-  "main": "bin/slik.js",
+  "main": "bin/buildozer.js",
   "bin": {
-    "slik": "bin/slik.js"
+    "buildozer": "bin/buildozer.js"
   },
   "dependencies": {
     "@babel/core": "^7.5.5",
@@ -30,8 +30,12 @@
     "xo": "^0.24.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm run xo"
   },
+  "files": [
+    "/lib",
+    "gulpfile.js"
+  ],
   "engines": {
     "node": ">=8"
   },
@@ -39,12 +43,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MartijnCuppens/slik.git"
+    "url": "git+https://github.com/MartijnCuppens/buildozer.git"
   },
   "bugs": {
-    "url": "https://github.com/MartijnCuppens/slik/issues"
+    "url": "https://github.com/MartijnCuppens/buildozer/issues"
   },
-  "homepage": "https://github.com/MartijnCuppens/slik#readme",
+  "homepage": "https://github.com/MartijnCuppens/buildozer#readme",
   "xo": {
     "space": true
   }
