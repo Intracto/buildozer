@@ -6,8 +6,6 @@ Buildozer is a simple build system to compile Sass and minify images, SVGs or ja
 
 ## Installation
 
-TODO: publish on npm
-
 ### Local
 
 ```shell
