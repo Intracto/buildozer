@@ -1,6 +1,6 @@
 {
   "name": "buildozer",
-  "version": "0.0.0-alpha.2",
+  "version": "0.0.0",
   "description": "Simple tool to build your frontend.",
   "main": "bin/buildozer.js",
   "bin": {
@@ -43,12 +43,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MartijnCuppens/buildozer.git"
+    "url": "git+https://github.com/Intracto/buildozer.git"
   },
   "bugs": {
-    "url": "https://github.com/MartijnCuppens/buildozer/issues"
+    "url": "https://github.com/Intracto/buildozer/issues"
   },
-  "homepage": "https://github.com/MartijnCuppens/buildozer#readme",
+  "homepage": "https://github.com/Intracto/buildozer#readme",
   "xo": {
     "space": true
   }
