@@ -132,5 +132,5 @@ If you want to configure your own paths, you can run `buildozer config` to gener
 
 Thanks Intracto for development maintenance & icons8 for providing a logo.
 
-[![Intracto](https://raw.githubusercontent.com/MartijnCuppens/buildozer/master/.github/intracto.svg?sanitize=true)](https://www.intracto.com/?utm_source=github&utm_campaign=buildozer) - 
+[![Intracto](https://raw.githubusercontent.com/MartijnCuppens/buildozer/master/.github/intracto.svg?sanitize=true)](https://www.intracto.com/?utm_source=github&utm_campaign=buildozer) &nbsp; &nbsp; 
 [![icons8](https://raw.githubusercontent.com/MartijnCuppens/buildozer/master/.github/icons8.svg?sanitize=true)](https://www.icons8.com/?utm_source=github&utm_campaign=buildozer)
