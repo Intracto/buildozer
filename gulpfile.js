@@ -17,18 +17,24 @@ process.chdir(process.env.INIT_CWD);
 // Watch files
 function watchFiles() {
   config.scss.forEach(scss => {
-    gulp.watch(scss.src, () => cssCompile(scss.src, scss.dest, false));
-    cssCompile(scss.src, scss.dest, false);
+    const src = config.src_base_path + scss.src;
+    const dest = config.dest_base_path + scss.dest;
+    gulp.watch(src, () => cssCompile(src, dest, false));
+    cssCompile(src, dest, false);
   });
 
   config.js.forEach(js => {
-    gulp.watch(js.src, () => jsCompile(js.src, js.dest, false));
-    jsCompile(js.src, js.dest, false);
+    const src = config.src_base_path + js.src;
+    const dest = config.dest_base_path + js.dest;
+    gulp.watch(src, () => jsCompile(src, dest, false));
+    jsCompile(src, dest, false);
   });
 
   config.img.forEach(img => {
-    gulp.watch(img.src, () => imgCompile(img.src, img.dest));
-    imgCompile(img.src, img.dest);
+    const src = config.src_base_path + img.src;
+    const dest = config.dest_base_path + img.dest;
+    gulp.watch(src, () => imgCompile(src, dest));
+    imgCompile(src, dest);
   });
 }
 

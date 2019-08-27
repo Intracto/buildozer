@@ -2,7 +2,7 @@
   <img src="https://raw.githubusercontent.com/MartijnCuppens/buildozer/develop/.github/buildozer.svg?sanitize=true" alt="Buildozer logo">
 </p>
 
-Buildozer is a simple build system to compile Sass and minify images, SVGs or javascript that works out of the box.
+Buildozer is a simple build system to compile Sass, minify images or SVGs and compiles javascript that works out of the box. It's build on top of Gulp but doesn't require you to configure the setup.
 
 ## Installation
 
@@ -67,43 +67,9 @@ The watch task will watch the source files for changes and rebuild a taks when a
 - Minifies images and svg
 - Compiles ES6 to ES5
 
-### CSS
+### Separate tasks
 
-```shell
-buildozer img
-```
-
-Only run css related tasks:
-- Compiles Sass to css
-- Use autoprefix for vendor prefixing
-- Minifies the css output
-
-### Img
-
-```shell
-buildozer img
-```
-
-Only run image related tasks:
-- Minifies images and svg
-
-### JS
-
-```shell
-buildozer js
-```
-
-Only run javascript related tasks:
-- Compiles ES6 to ES5
-- Minifies js
-
-### Clean
-
-```shell
-buildozer clean
-```
-
-Clean all dest folders.
+`buildozer clean` is run to clear all `dest` folders. `buildozer css`, `buildozer js` and `buildozer img` can be used to run the subtasks of `buildozer build`.
 
 ## Default folder structure
 
@@ -147,6 +113,8 @@ project/
 Buildozer uses a `.buildozerrc` configuration file which uses the yaml syntax and defines which paths are used. By default, this file looks like this:
 
 ```yaml
+src_base_path: ./
+dest_base_path: ./
 scss:
   - src: scss/**/*.scss
     dest: dest/css
@@ -158,8 +126,10 @@ js:
     dest: dest/js
 ```
 
-If you want to configure your own paths, you can run `buildozer config` to generate a `.buildozerrc` in your folder and change the paths however you like.
+If you want to configure your own paths, you can run `buildozer config` to generate a `.buildozerrc` in your folder and change the paths however you like. The `src_base_path`
 
 ## Thanks
 
-[![Intracto](https://raw.githubusercontent.com/MartijnCuppens/buildozer/develop/.github/intracto.svg?sanitize=true)](https://www.intracto.com/?utm_source=github&utm_campaign=buildozer).
+
+
+[![Intracto](https://raw.githubusercontent.com/MartijnCuppens/buildozer/develop/.github/intracto.svg?sanitize=true)](https://www.intracto.com/?utm_source=github&utm_campaign=buildozer)
