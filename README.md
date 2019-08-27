@@ -2,7 +2,7 @@
   <img src="https://raw.githubusercontent.com/MartijnCuppens/buildozer/master/.github/buildozer.svg?sanitize=true" alt="Buildozer logo">
 </p>
 
-Buildozer is a simple build system to compile Sass, minify images or SVGs and compiles javascript that works out of the box. It's build on top of Gulp but doesn't require you to configure the setup.
+Buildozer is a simple build system to compile Sass, minify images or SVGs and compiles javascript that works out of the box. It's built on top of Gulp but doesn't require you to configure the setup.
 
 ## Installation
 
@@ -59,11 +59,11 @@ The build task can be used for production environments. The build command:
 buildozer watch
 ```
 
-The watch task will watch the source files for changes and rebuild a taks when a change is detected:
+The watch task will watch the source files for changes and rebuild a task when a change is detected:
 - Clean all dest folders
 - Compiles Sass to css
 - Use autoprefix for vendor prefixing
-- Add scss souremaps
+- Add scss sourcemaps
 - Minifies images and svg
 - Compiles ES6 to ES5
 
