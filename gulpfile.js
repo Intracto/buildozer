@@ -19,21 +19,30 @@ function watchFiles() {
   config.scss.forEach(scss => {
     const src = config.src_base_path + scss.src;
     const dest = config.dest_base_path + scss.dest;
-    gulp.watch(src, () => cssCompile(src, dest, false));
+    // eslint-disable-next-line func-names
+    gulp.watch(src, function css() {
+      return cssCompile(src, dest, false);
+    });
     cssCompile(src, dest, false);
   });
 
   config.js.forEach(js => {
     const src = config.src_base_path + js.src;
     const dest = config.dest_base_path + js.dest;
-    gulp.watch(src, () => jsCompile(src, dest, false));
+    // eslint-disable-next-line func-names
+    gulp.watch(src, function js() {
+      return jsCompile(src, dest, false);
+    });
     jsCompile(src, dest, false);
   });
 
   config.img.forEach(img => {
     const src = config.src_base_path + img.src;
     const dest = config.dest_base_path + img.dest;
-    gulp.watch(src, () => imgCompile(src, dest));
+    // eslint-disable-next-line func-names
+    gulp.watch(src, function img() {
+      return imgCompile(src, dest);
+    });
     imgCompile(src, dest);
   });
 }
