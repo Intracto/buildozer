@@ -24,6 +24,7 @@
     "gulp-sourcemaps": "^2.6.5",
     "gulp-terser": "^1.2.0",
     "js-yaml": "^3.13.1",
+    "rfs": "^9.0.0",
     "yargs": "^14.0.0"
   },
   "devDependencies": {
