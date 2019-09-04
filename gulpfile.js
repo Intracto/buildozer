@@ -4,6 +4,10 @@
 const gulp = require('gulp');
 const config = require('./lib/gulp/config.js');
 
+// Only load browserSync when needed
+// eslint-disable-next-line import/order
+const browserSync = config.browsersync.proxy ? require('browser-sync').create() : false;
+
 // Get all tasks
 const clean = require('./lib/gulp/clean.js');
 const copy = require('./lib/gulp/copy.js');
@@ -70,6 +74,12 @@ function watchFiles() {
     });
     jsConcat(src, dest, name, false);
   });
+
+  if (browserSync !== false) {
+    browserSync.init({
+      proxy: config.browsersync.proxy
+    });
+  }
 }
 
 // Define complex tasks
