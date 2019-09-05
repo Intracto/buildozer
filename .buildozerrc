@@ -9,3 +9,7 @@ img:
 js:
   - src: js/**/*.js
     dest: dest/js
+js-concat:
+  - src: js/concat/*.js
+    name: all.js
+    dest: dest/js

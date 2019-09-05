@@ -10,7 +10,7 @@ const clean = require('./lib/gulp/clean.js')(config);
 const copy = require('./lib/gulp/copy.js')(config);
 const {css, cssCompile} = require('./lib/gulp/css.js')(config, gulp, plumber);
 const {img, imgCompile} = require('./lib/gulp/image.js')(config, gulp, plumber);
-const {js, jsCompile} = require('./lib/gulp/js.js')(config, gulp, plumber);
+const {js, jsCompile, jsConcat} = require('./lib/gulp/js.js')(config, gulp, plumber);
 
 // Change working dir back to initial dir
 process.chdir(process.env.INIT_CWD);
@@ -37,6 +37,17 @@ function watchFiles() {
     jsCompile(src, dest, false);
   });
 
+  config['js-concat'].forEach(js => {
+    const src = config.src_base_path + js.src;
+    const dest = config.dest_base_path + js.dest;
+    const name = config.dest_base_path + js.name;
+    // eslint-disable-next-line func-names
+    gulp.watch(src, function concat() {
+      return jsConcat(src, dest, name, false);
+    });
+    jsConcat(src, dest, name, false);
+  });
+
   config.img.forEach(img => {
     const src = config.src_base_path + img.src;
     const dest = config.dest_base_path + img.dest;
@@ -57,6 +68,7 @@ exports.copy = copy;
 exports.img = img;
 exports.css = css;
 exports.js = js;
+exports['js-concat'] = jsConcat;
 exports.clean = clean;
 exports.build = build;
 exports.watch = watch;
