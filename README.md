@@ -46,7 +46,7 @@ buildozer build
 ```
 
 The build task can be used for production environments. The build command:
-- Copy files if needed
+- Copy files [if needed](#copy)
 - Compiles Sass to css
 - Use autoprefix for vendor prefixing
 - Minifies the css output
@@ -61,7 +61,7 @@ buildozer watch
 ```
 
 The watch task will watch the source files for changes and rebuild a task when a change is detected:
-- Copy files if needed
+- Copy files [if needed](#copy)
 - Clean all dest folders
 - Compiles Sass to css
 - Use autoprefix for vendor prefixing
