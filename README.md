@@ -46,6 +46,7 @@ buildozer build
 ```
 
 The build task can be used for production environments. The build command:
+- Copy files if needed
 - Compiles Sass to css
 - Use autoprefix for vendor prefixing
 - Minifies the css output
@@ -60,6 +61,7 @@ buildozer watch
 ```
 
 The watch task will watch the source files for changes and rebuild a task when a change is detected:
+- Copy files if needed
 - Clean all dest folders
 - Compiles Sass to css
 - Use autoprefix for vendor prefixing
@@ -131,6 +133,18 @@ If you want to configure your own paths, you can run `buildozer config` to gener
 ## RFS
 
 The [RFS](https://github.com/twbs/rfs) PostCSS plugin is included by default which allows you to use the `rfs()` function in your Sass.
+
+## Copy
+
+Additionally files can be copied before if needed. Useful whenever you need some files from the `node_modules` folder which you don't have available on production.
+
+```yaml
+copy:
+  - src: node_modules/jquery/dist/jquery.min.js
+    dest: js/vendor
+  - src: node_modules/bootstrap/dist/js/bootstrap.min.js
+    dest: js/vendor
+```
 
 ## Thanks
 
