@@ -52,7 +52,8 @@ The build task can be used for production environments. The build command:
 - Minifies the css output
 - Minifies images and svg
 - Compiles ES6 to ES5
-- Minifies js
+- Minifies javascript
+- Concatenate `.js` files in the `concat` folder 
 
 ### Watch
 
@@ -68,6 +69,7 @@ The watch task will watch the source files for changes and rebuild a task when a
 - Add scss sourcemaps
 - Minifies images and svg
 - Compiles ES6 to ES5
+- Concatenate `.js` files in the `concat` folder
 
 ### Separate tasks
 
@@ -83,6 +85,8 @@ project/
 │   ├── main.scss
 │   └── …
 ├── js/
+│   ├── concat
+│   │   └── …
 │   ├── main.js
 │   └── …
 └── img/
@@ -101,6 +105,7 @@ project/
     │   ├── main.css
     │   └── …
     ├── js/
+    │   ├── all.js
     │   ├── main.js
     │   └── …
     └── img/
@@ -126,9 +131,17 @@ img:
 js:
   - src: js/**/*.js
     dest: dest/js
+js-concat:
+  - src: js/concat/*.js
+    name: all.js
+    dest: dest/js
 ```
 
 If you want to configure your own paths, you can run `buildozer config` to generate a `.buildozerrc` in your folder and change the paths however you like. The `src_base_path`
+
+## Concat
+
+If you want to combine multiple `.js` files into one file, you can drop the files in `js/concat` and buildozer will combine them all into a single `all.js` file. The files themselves are also compiled to the destination folder for whenever they need to be used stand alone.
 
 ## RFS
 
