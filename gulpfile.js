@@ -7,6 +7,7 @@ const config = require('./lib/gulp/config.js')();
 
 // Get all tasks
 const clean = require('./lib/gulp/clean.js')(config);
+const copy = require('./lib/gulp/copy.js')(config);
 const {css, cssCompile} = require('./lib/gulp/css.js')(config, gulp, plumber);
 const {img, imgCompile} = require('./lib/gulp/image.js')(config, gulp, plumber);
 const {js, jsCompile} = require('./lib/gulp/js.js')(config, gulp, plumber);
@@ -48,10 +49,11 @@ function watchFiles() {
 }
 
 // Define complex tasks
-const build = gulp.series(clean, gulp.parallel(css, js, img));
-const watch = gulp.series(clean, watchFiles);
+const build = gulp.series(clean, copy, gulp.parallel(css, js, img));
+const watch = gulp.series(clean, copy, watchFiles);
 
 // Export tasks
+exports.copy = copy;
 exports.img = img;
 exports.css = css;
 exports.js = js;
