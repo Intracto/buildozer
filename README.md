@@ -135,13 +135,21 @@ js-concat:
   - src: js/concat/*.js
     name: all.js
     dest: dest/js
+svg-sprite:
+  - src: img/sprite/*.svg
+    name: sprite.svg
+    dest: dest/img/sprite
 ```
 
-If you want to configure your own paths, you can run `buildozer config` to generate a `.buildozerrc` in your folder and change the paths however you like. The `src_base_path`
+If you want to configure your own paths, you can run `buildozer config` to generate a `.buildozerrc` in your folder and change the paths however you like. All `src` paths are prefixed `src_base_path`, the `dest` paths are prefixed with `dest_base_path`.
 
 ## Concat
 
 If you want to combine multiple `.js` files into one file, you can drop the files in `js/concat` and buildozer will combine them all into a single `all.js` file. The files themselves are also compiled to the destination folder for whenever they need to be used stand alone.
+
+## SVG sprites
+
+You can combine the `<svg>`s you use into one sprite. Just drop the files in the `img/sprite` folder and the sprite will be generated as `dest/img/sprite/sprite.svg`.
 
 ## RFS
 

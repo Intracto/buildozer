@@ -24,6 +24,7 @@
     "gulp-postcss": "^8.0.0",
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.5",
+    "gulp-svg-sprite": "^1.5.0",
     "gulp-terser": "^1.2.0",
     "js-yaml": "^3.13.1",
     "rfs": "^9.0.0",

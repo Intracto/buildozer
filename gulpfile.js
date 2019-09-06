@@ -9,7 +9,7 @@ const config = require('./lib/gulp/config.js')();
 const clean = require('./lib/gulp/clean.js')(config);
 const copy = require('./lib/gulp/copy.js')(config);
 const {css, cssCompile} = require('./lib/gulp/css.js')(config, gulp, plumber);
-const {img, imgCompile} = require('./lib/gulp/image.js')(config, gulp, plumber);
+const {img, imgCompile, svgSprite} = require('./lib/gulp/image.js')(config, gulp, plumber);
 const {js, jsCompile, jsConcat} = require('./lib/gulp/js.js')(config, gulp, plumber);
 
 // Change working dir back to initial dir
@@ -57,6 +57,17 @@ function watchFiles() {
     });
     imgCompile(src, dest);
   });
+
+  config['svg-sprite'].forEach(js => {
+    const src = config.src_base_path + js.src;
+    const dest = config.dest_base_path + js.dest;
+    const name = config.dest_base_path + js.name;
+    // eslint-disable-next-line func-names
+    gulp.watch(src, function svgSpriteCreate() {
+      return svgSprite(src, dest, name);
+    });
+    jsConcat(src, dest, name, false);
+  });
 }
 
 // Define complex tasks
@@ -69,6 +80,7 @@ exports.img = img;
 exports.css = css;
 exports.js = js;
 exports['js-concat'] = jsConcat;
+exports['svg-sprite'] = svgSprite;
 exports.clean = clean;
 exports.build = build;
 exports.watch = watch;
