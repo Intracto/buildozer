@@ -13,3 +13,7 @@ js-concat:
   - src: js/concat/*.js
     name: all.js
     dest: dest/js
+svg-sprite:
+  - src: img/sprite/*.svg
+    name: sprite.svg
+    dest: dest/img/sprite
