@@ -2,15 +2,14 @@
 
 // Load plugins that are required by multiple tasks
 const gulp = require('gulp');
-const plumber = require('gulp-plumber');
-const config = require('./lib/gulp/config.js')();
+const config = require('./lib/gulp/config.js');
 
 // Get all tasks
-const clean = require('./lib/gulp/clean.js')(config);
-const copy = require('./lib/gulp/copy.js')(config);
-const {css, cssCompile} = require('./lib/gulp/css.js')(config, gulp, plumber);
-const {img, imgCompile, svgSprite} = require('./lib/gulp/image.js')(config, gulp, plumber);
-const {js, jsCompile, jsConcat} = require('./lib/gulp/js.js')(config, gulp, plumber);
+const clean = require('./lib/gulp/clean.js');
+const copy = require('./lib/gulp/copy.js');
+const {css, cssCompile} = require('./lib/gulp/css.js');
+const {img, imgCompile, svgSprite} = require('./lib/gulp/image.js');
+const {js, jsCompile, jsConcat} = require('./lib/gulp/js.js');
 
 // Change working dir back to initial dir
 process.chdir(process.env.INIT_CWD);
@@ -41,6 +40,7 @@ function watchFiles() {
     const src = config.src_base_path + js.src;
     const dest = config.dest_base_path + js.dest;
     const name = config.dest_base_path + js.name;
+
     // eslint-disable-next-line func-names
     gulp.watch(src, function concat() {
       return jsConcat(src, dest, name, false);
@@ -51,6 +51,7 @@ function watchFiles() {
   config.img.forEach(img => {
     const src = config.src_base_path + img.src;
     const dest = config.dest_base_path + img.dest;
+
     // eslint-disable-next-line func-names
     gulp.watch(src, function img() {
       return imgCompile(src, dest);
@@ -62,6 +63,7 @@ function watchFiles() {
     const src = config.src_base_path + js.src;
     const dest = config.dest_base_path + js.dest;
     const name = config.dest_base_path + js.name;
+
     // eslint-disable-next-line func-names
     gulp.watch(src, function svgSpriteCreate() {
       return svgSprite(src, dest, name);
