@@ -23,9 +23,14 @@ function watchFiles() {
   config.scss.forEach(scss => {
     const src = config.src_base_path + scss.src;
     const dest = config.dest_base_path + scss.dest;
+
     // eslint-disable-next-line func-names
     gulp.watch(src, function css() {
       return cssCompile(src, dest, false);
+    }).on('change', () => {
+      if (browserSync !== false) {
+        browserSync.stream({match: '**/*.css'});
+      }
     });
     cssCompile(src, dest, false);
   });
@@ -33,9 +38,14 @@ function watchFiles() {
   config.js.forEach(js => {
     const src = config.src_base_path + js.src;
     const dest = config.dest_base_path + js.dest;
+
     // eslint-disable-next-line func-names
     gulp.watch(src, function js() {
       return jsCompile(src, dest, false);
+    }).on('change', () => {
+      if (browserSync !== false) {
+        browserSync.stream({match: '**/*.js'});
+      }
     });
     jsCompile(src, dest, false);
   });
@@ -48,6 +58,10 @@ function watchFiles() {
     // eslint-disable-next-line func-names
     gulp.watch(src, function concat() {
       return jsConcat(src, dest, name, false);
+    }).on('change', () => {
+      if (browserSync !== false) {
+        browserSync.stream({match: `**/${name}`});
+      }
     });
     jsConcat(src, dest, name, false);
   });
@@ -59,6 +73,10 @@ function watchFiles() {
     // eslint-disable-next-line func-names
     gulp.watch(src, function img() {
       return imgCompile(src, dest);
+    }).on('change', () => {
+      if (browserSync !== false) {
+        browserSync.stream({match: '**/*.{png,jpg,jpeg,gif,svg}'});
+      }
     });
     imgCompile(src, dest);
   });
@@ -71,13 +89,19 @@ function watchFiles() {
     // eslint-disable-next-line func-names
     gulp.watch(src, function svgSpriteCreate() {
       return svgSprite(src, dest, name);
+    }).on('change', () => {
+      if (browserSync !== false) {
+        browserSync.stream({match: '**/*.svg'});
+      }
     });
     jsConcat(src, dest, name, false);
   });
 
   if (browserSync !== false) {
     browserSync.init({
-      proxy: config.browsersync.proxy
+      proxy: config.browsersync.proxy,
+      notify: false,
+      open: false
     });
   }
 }
