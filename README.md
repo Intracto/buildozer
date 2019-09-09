@@ -2,7 +2,7 @@
   <img src="https://raw.githubusercontent.com/MartijnCuppens/buildozer/master/.github/buildozer.svg?sanitize=true" alt="Buildozer logo">
 </p>
 
-Buildozer is a simple build system to compile Sass, minify images or SVGs and compiles javascript that works out of the box. It's built on top of [Gulp](https://gulpjs.com/) but doesn't require any configuration to get started.
+Buildozer is a simple build system to compile Sass, minify images or SVGs and compiles javascript. It's built on top of [Gulp](https://gulpjs.com/) but doesn't require any configuration to get started.
 
 ## Installation
 
@@ -16,7 +16,7 @@ npm i buildozer
 yarn add buildozer
 ```
 
-Once installed, scripts can be added to your `package.json`:
+Once installed, the buildozer scripts can be executed:
 
 ```shell
 # Using npm's script
@@ -41,17 +41,19 @@ The scripts can also be added to your `package.json` if needed:
 
 ### Build
 
+Both the `build` and `watch` commands output the files to the same directory.
+
 ```shell
 buildozer build
 ```
 
 The `build` task can be used for production environments. The build command:
 - Copy files [if needed](#copy)
-- Compiles Sass to css
-- Use autoprefixer for vendor prefixing
-- Minifies the css output
+- Compiles Sass to CSS
+- Use [autoprefixer](https://github.com/postcss/autoprefixer) for vendor prefixing
+- Minifies the CSS output
 - Minifies images and svg
-- Compiles ES6 to ES5
+- Transpiles ES6 to ES5
 - Minifies javascript
 - Concatenate `.js` files in the `concat` folder 
 
@@ -64,11 +66,11 @@ buildozer watch
 The `watch` task will watch the source files for changes and rebuild a task when a change is detected:
 - Copy files [if needed](#copy)
 - Clean all dest folders
-- Compiles Sass to css
-- Use autoprefixer for vendor prefixing
+- Compiles Sass to CSS
+- Use [autoprefixer](https://github.com/postcss/autoprefixer) for vendor prefixing
 - Add scss sourcemaps
 - Minifies images and svg
-- Compiles ES6 to ES5
+- Transpiles ES6 to ES5
 - Concatenate `.js` files in the `concat` folder
 - Run `browsersync` if configured
 
