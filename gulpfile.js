@@ -26,11 +26,7 @@ function watchFiles() {
 
     // eslint-disable-next-line func-names
     gulp.watch(src, function css() {
-      return cssCompile(src, dest, false);
-    }).on('change', () => {
-      if (browserSync !== false) {
-        browserSync.stream({match: '**/*.css'});
-      }
+      return cssCompile(src, dest, false, browserSync);
     });
     cssCompile(src, dest, false);
   });
@@ -41,11 +37,7 @@ function watchFiles() {
 
     // eslint-disable-next-line func-names
     gulp.watch(src, function js() {
-      return jsCompile(src, dest, false);
-    }).on('change', () => {
-      if (browserSync !== false) {
-        browserSync.stream({match: '**/*.js'});
-      }
+      return jsCompile(src, dest, false, browserSync);
     });
     jsCompile(src, dest, false);
   });
@@ -57,11 +49,7 @@ function watchFiles() {
 
     // eslint-disable-next-line func-names
     gulp.watch(src, function concat() {
-      return jsConcat(src, dest, name, false);
-    }).on('change', () => {
-      if (browserSync !== false) {
-        browserSync.stream({match: `**/${name}`});
-      }
+      return jsConcat(src, dest, name, false, browserSync);
     });
     jsConcat(src, dest, name, false);
   });
@@ -72,11 +60,7 @@ function watchFiles() {
 
     // eslint-disable-next-line func-names
     gulp.watch(src, function img() {
-      return imgCompile(src, dest);
-    }).on('change', () => {
-      if (browserSync !== false) {
-        browserSync.stream({match: '**/*.{png,jpg,jpeg,gif,svg}'});
-      }
+      return imgCompile(src, dest, browserSync);
     });
     imgCompile(src, dest);
   });
@@ -88,11 +72,7 @@ function watchFiles() {
 
     // eslint-disable-next-line func-names
     gulp.watch(src, function svgSpriteCreate() {
-      return svgSprite(src, dest, name);
-    }).on('change', () => {
-      if (browserSync !== false) {
-        browserSync.stream({match: '**/*.svg'});
-      }
+      return svgSprite(src, dest, name, browserSync);
     });
     svgSprite(src, dest, name);
   });
