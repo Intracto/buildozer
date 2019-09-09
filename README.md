@@ -2,7 +2,7 @@
   <img src="https://raw.githubusercontent.com/MartijnCuppens/buildozer/master/.github/buildozer.svg?sanitize=true" alt="Buildozer logo">
 </p>
 
-Buildozer is a simple build system to compile Sass, minify images or SVGs and compiles javascript that works out of the box. It's built on top of Gulp but doesn't require you to configure the setup.
+Buildozer is a simple build system to compile Sass, minify images or SVGs and compiles javascript that works out of the box. It's built on top of [Gulp](https://gulpjs.com/) but doesn't require any configure to get started.
 
 ## Installation
 
@@ -139,6 +139,9 @@ svg-sprite:
   - src: img/sprite/*.svg
     name: sprite.svg
     dest: dest/img/sprite
+browsersync:
+  server: null # Static sites
+  proxy: null # Dynamic sites
 ```
 
 If you want to configure your own paths, you can run `buildozer config` to generate a `.buildozerrc` in your folder and change the paths however you like. All `src` paths are prefixed `src_base_path`, the `dest` paths are prefixed with `dest_base_path`.
@@ -150,6 +153,10 @@ If you want to combine multiple `.js` files into one file, you can drop the file
 ## SVG sprites
 
 You can combine the `<svg>`s you use into one sprite. Just drop the files in the `img/sprite` folder and the sprite will be generated as `dest/img/sprite/sprite.svg`.
+
+## Browser sync
+
+[Browsersync](https://browsersync.io) can be enabled for as well serving static sites (`server` option) or dynamic sites (`proxy` option).
 
 ## RFS
 

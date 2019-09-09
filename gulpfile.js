@@ -4,6 +4,10 @@
 const gulp = require('gulp');
 const config = require('./lib/gulp/config.js');
 
+// Only load browserSync when needed
+// eslint-disable-next-line import/order
+const browserSync = config.browsersync.proxy || config.browsersync.server ? require('browser-sync').create() : false;
+
 // Get all tasks
 const clean = require('./lib/gulp/clean.js');
 const copy = require('./lib/gulp/copy.js');
@@ -19,9 +23,10 @@ function watchFiles() {
   config.scss.forEach(scss => {
     const src = config.src_base_path + scss.src;
     const dest = config.dest_base_path + scss.dest;
+
     // eslint-disable-next-line func-names
     gulp.watch(src, function css() {
-      return cssCompile(src, dest, false);
+      return cssCompile(src, dest, false, browserSync);
     });
     cssCompile(src, dest, false);
   });
@@ -29,9 +34,10 @@ function watchFiles() {
   config.js.forEach(js => {
     const src = config.src_base_path + js.src;
     const dest = config.dest_base_path + js.dest;
+
     // eslint-disable-next-line func-names
     gulp.watch(src, function js() {
-      return jsCompile(src, dest, false);
+      return jsCompile(src, dest, false, browserSync);
     });
     jsCompile(src, dest, false);
   });
@@ -43,7 +49,7 @@ function watchFiles() {
 
     // eslint-disable-next-line func-names
     gulp.watch(src, function concat() {
-      return jsConcat(src, dest, name, false);
+      return jsConcat(src, dest, name, false, browserSync);
     });
     jsConcat(src, dest, name, false);
   });
@@ -54,7 +60,7 @@ function watchFiles() {
 
     // eslint-disable-next-line func-names
     gulp.watch(src, function img() {
-      return imgCompile(src, dest);
+      return imgCompile(src, dest, browserSync);
     });
     imgCompile(src, dest);
   });
@@ -66,10 +72,19 @@ function watchFiles() {
 
     // eslint-disable-next-line func-names
     gulp.watch(src, function svgSpriteCreate() {
-      return svgSprite(src, dest, name);
+      return svgSprite(src, dest, name, browserSync);
     });
-    jsConcat(src, dest, name, false);
+    svgSprite(src, dest, name);
   });
+
+  if (browserSync !== false) {
+    browserSync.init({
+      proxy: config.browsersync.proxy,
+      server: config.browsersync.server,
+      notify: false,
+      open: false
+    });
+  }
 }
 
 // Define complex tasks
