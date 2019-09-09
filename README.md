@@ -99,7 +99,7 @@ project/
     └── …
 ```
 
-&hellip;which compiles to:
+&hellip; which compiles to:
 
 ```text
 project/
