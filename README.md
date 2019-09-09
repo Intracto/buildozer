@@ -2,7 +2,7 @@
   <img src="https://raw.githubusercontent.com/MartijnCuppens/buildozer/master/.github/buildozer.svg?sanitize=true" alt="Buildozer logo">
 </p>
 
-Buildozer is a simple build system to compile Sass, minify images or SVGs and compiles javascript. It's built on top of [Gulp](https://gulpjs.com/) but doesn't require any configuration to get started.
+Buildozer is a simple build system to compile Sass, minify images or SVGs and compile javascript. It's built on top of [Gulp](https://gulpjs.com/) but doesn't require any configuration to get started.
 
 ## Installation
 
@@ -39,9 +39,9 @@ The scripts can also be added to your `package.json` if needed:
 
 ## Commands
 
-### Build
-
 Both the `build` and `watch` commands output the files to the same directory.
+
+### Build
 
 ```shell
 buildozer build
