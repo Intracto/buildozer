@@ -94,7 +94,7 @@ function watchFiles() {
         browserSync.stream({match: '**/*.svg'});
       }
     });
-    jsConcat(src, dest, name, false);
+    svgSprite(src, dest, name);
   });
 
   if (browserSync !== false) {
