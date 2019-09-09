@@ -6,7 +6,7 @@ const config = require('./lib/gulp/config.js');
 
 // Only load browserSync when needed
 // eslint-disable-next-line import/order
-const browserSync = config.browsersync.proxy ? require('browser-sync').create() : false;
+const browserSync = config.browsersync.proxy || config.browsersync.server ? require('browser-sync').create() : false;
 
 // Get all tasks
 const clean = require('./lib/gulp/clean.js');
@@ -100,6 +100,7 @@ function watchFiles() {
   if (browserSync !== false) {
     browserSync.init({
       proxy: config.browsersync.proxy,
+      server: config.browsersync.server,
       notify: false,
       open: false
     });
