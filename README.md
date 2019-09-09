@@ -2,7 +2,7 @@
   <img src="https://raw.githubusercontent.com/MartijnCuppens/buildozer/master/.github/buildozer.svg?sanitize=true" alt="Buildozer logo">
 </p>
 
-Buildozer is a simple build system to compile Sass, minify images or SVGs and compiles javascript that works out of the box. It's built on top of [Gulp](https://gulpjs.com/) but doesn't require any configure to get started.
+Buildozer is a simple build system to compile Sass, minify images or SVGs and compiles javascript that works out of the box. It's built on top of [Gulp](https://gulpjs.com/) but doesn't require any configuration to get started.
 
 ## Installation
 
@@ -18,24 +18,24 @@ yarn add buildozer
 
 Once installed, scripts can be added to your `package.json`:
 
+```shell
+# Using npm's script
+npx buildozer build
+
+# Or using yarn
+yarn buildozer build
+```
+
+The scripts can also be added to your `package.json` if needed:
+
 ```json
-"scripts" : {
-  "build": "buildozer build",
-  "watch": "buildozer watch"
+{
+  "scripts" : {
+    "build": "buildozer build",
+    "watch": "buildozer watch"
+  }
 }
 ```
-
-Now `npm run build` or `npm run watch` can be executed to compile everything. If you're using `yarn`, you don't need to add scripts to your package file because you can just run `yarn buildozer build`.
-
-### Global
-
-If you want to use the commands globally, add the `-g` parameter:
-
-```shell
-npm i buildozer -g
-```
-
-Now you can use `buildozer build` to compile.
 
 ## Commands
 
@@ -45,10 +45,10 @@ Now you can use `buildozer build` to compile.
 buildozer build
 ```
 
-The build task can be used for production environments. The build command:
+The `build` task can be used for production environments. The build command:
 - Copy files [if needed](#copy)
 - Compiles Sass to css
-- Use autoprefix for vendor prefixing
+- Use autoprefixer for vendor prefixing
 - Minifies the css output
 - Minifies images and svg
 - Compiles ES6 to ES5
@@ -61,23 +61,24 @@ The build task can be used for production environments. The build command:
 buildozer watch
 ```
 
-The watch task will watch the source files for changes and rebuild a task when a change is detected:
+The `watch` task will watch the source files for changes and rebuild a task when a change is detected:
 - Copy files [if needed](#copy)
 - Clean all dest folders
 - Compiles Sass to css
-- Use autoprefix for vendor prefixing
+- Use autoprefixer for vendor prefixing
 - Add scss sourcemaps
 - Minifies images and svg
 - Compiles ES6 to ES5
 - Concatenate `.js` files in the `concat` folder
+- Run `browsersync` if configured
 
 ### Separate tasks
 
-`buildozer clean` is run to clear all `dest` folders. `buildozer css`, `buildozer js` and `buildozer img` can be used to run the subtasks of `buildozer build`.
+`buildozer clean` is run to clear all `dest` folders. `buildozer copy`, `buildozer css`, `buildozer js`, `buildozer js-concat` , `buildozer svg-sprite` and `buildozer img` can be used to run the subtasks of `buildozer build`.
 
 ## Default folder structure
 
-This is the default folder structure:
+Buildozer knows what files it needs to compile because it uses a predefined folder structure:
 
 ```text
 project/
@@ -96,7 +97,7 @@ project/
     └── …
 ```
 
-which compiles to:
+&hellip;which compiles to:
 
 ```text
 project/
@@ -148,11 +149,11 @@ If you want to configure your own paths, you can run `buildozer config` to gener
 
 ## Concat
 
-If you want to combine multiple `.js` files into one file, you can drop the files in `js/concat` and buildozer will combine them all into a single `all.js` file. The files themselves are also compiled to the destination folder for whenever they need to be used stand alone.
+If you want to combine multiple `.js` files into one file, you can drop the files in `js/concat` and buildozer output a single `all.js` file. The files themselves are also compiled to the destination folder for whenever they need to be used stand alone.
 
 ## SVG sprites
 
-You can combine the `<svg>`s you use into one sprite. Just drop the files in the `img/sprite` folder and the sprite will be generated as `dest/img/sprite/sprite.svg`.
+You can combine multiple `<svg>`s you use into one sprite. Just drop the files in the `img/sprite` folder and the sprite will be generated as `dest/img/sprite/sprite.svg`.
 
 ## Browser sync
 
