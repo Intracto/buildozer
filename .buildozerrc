@@ -1,8 +1,5 @@
 src_base_path: ./
 dest_base_path: ./
-postcss:
-  - name: null
-    options: null
 scss:
   - src: scss/**/*.scss
     dest: dest/css
