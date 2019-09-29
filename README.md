@@ -175,9 +175,9 @@ For example you could place a `postcss.config.js` in your document root.
 module.exports = () => {
   return {
         plugins: {
-          'rfs':{},
-          'autoprefixer':{},
-          'cssnano':{}
+          'rfs': {},
+          'autoprefixer': {},
+          'cssnano': {}
         }
     }
 };
