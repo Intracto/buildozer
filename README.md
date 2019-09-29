@@ -167,14 +167,21 @@ The [RFS](https://github.com/twbs/rfs) PostCSS plugin is included by default whi
 
 ## PostCSS plugins
 
-You can register extra PostCSS plugins with the following structure
+Loading extra PostCSS plugins can be done by overriding the default config. This can be done in multiple ways documented on the [postcss-load-config](https://github.com/michael-ciniawsky/postcss-load-config) repository.
 
-```yaml
-postcss:
-  - name: postcss-inline-svg
-    options: {removeFill: true'}
-  - name: postcss-svgo
-    options: {}
+For example you could place a `postcss.config.js` in your document root.
+
+```javascript
+module.exports = () => {
+  return {
+        plugins: {
+          'rfs':{},
+          'autoprefixer':{},
+          'cssnano':{}
+        }
+    }
+};
+
 ```
 
 ## Copy
