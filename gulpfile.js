@@ -26,9 +26,9 @@ function watchFiles() {
 
     // eslint-disable-next-line func-names
     gulp.watch(src, function css() {
-      return cssCompile({src, dest, minified: false, browserSync});
+      return cssCompile({src, dest, browserSync});
     });
-    cssCompile({src, dest, minified: false});
+    cssCompile({src, dest});
   });
 
   config.js.forEach(js => {
@@ -37,9 +37,9 @@ function watchFiles() {
 
     // eslint-disable-next-line func-names
     gulp.watch(src, function js() {
-      return jsCompile({src, dest, minified: false, browserSync});
+      return jsCompile({src, dest, browserSync});
     });
-    jsCompile({src, dest, minified: false});
+    jsCompile({src, dest});
   });
 
   config['js-concat'].forEach(js => {
@@ -49,9 +49,9 @@ function watchFiles() {
 
     // eslint-disable-next-line func-names
     gulp.watch(src, function concat() {
-      return jsConcat({src, dest, name, minified: false, browserSync});
+      return jsConcat({src, dest, name, browserSync});
     });
-    jsConcat({src, dest, name, minified: false});
+    jsConcat({src, dest, name});
   });
 
   config.img.forEach(img => {
@@ -91,8 +91,13 @@ function watchFiles() {
   }
 }
 
+function setProduction(cb) {
+  process.env.NODE_ENV = 'production';
+  cb();
+}
+
 // Define complex tasks
-const build = gulp.series(clean, copy, gulp.parallel(css, js, img));
+const build = gulp.series(setProduction, clean, copy, gulp.parallel(css, js, img));
 const watch = gulp.series(clean, copy, watchFiles);
 
 // Export tasks
@@ -103,5 +108,6 @@ exports.js = js;
 exports['js-concat'] = jsConcat;
 exports['svg-sprite'] = svgSprite;
 exports.clean = clean;
+exports.setProduction = setProduction;
 exports.build = build;
 exports.watch = watch;
