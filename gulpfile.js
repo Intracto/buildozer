@@ -26,9 +26,9 @@ function watchFiles() {
 
     // eslint-disable-next-line func-names
     gulp.watch(src, function css() {
-      return cssCompile(src, dest, false, browserSync);
+      return cssCompile({src, dest, minified: false, browserSync});
     });
-    cssCompile(src, dest, false);
+    cssCompile({src, dest, minified: false});
   });
 
   config.js.forEach(js => {
@@ -37,9 +37,9 @@ function watchFiles() {
 
     // eslint-disable-next-line func-names
     gulp.watch(src, function js() {
-      return jsCompile(src, dest, false, browserSync);
+      return jsCompile({src, dest, minified: false, browserSync});
     });
-    jsCompile(src, dest, false);
+    jsCompile({src, dest, minified: false});
   });
 
   config['js-concat'].forEach(js => {
@@ -49,9 +49,9 @@ function watchFiles() {
 
     // eslint-disable-next-line func-names
     gulp.watch(src, function concat() {
-      return jsConcat(src, dest, name, false, browserSync);
+      return jsConcat({src, dest, name, minified: false, browserSync});
     });
-    jsConcat(src, dest, name, false);
+    jsConcat({src, dest, name, minified: false});
   });
 
   config.img.forEach(img => {
@@ -60,9 +60,9 @@ function watchFiles() {
 
     // eslint-disable-next-line func-names
     gulp.watch(src, function img() {
-      return imgCompile(src, dest, browserSync);
+      return imgCompile({src, dest, browserSync});
     });
-    imgCompile(src, dest);
+    imgCompile({src, dest});
   });
 
   config['svg-sprite'].forEach(js => {
@@ -72,9 +72,9 @@ function watchFiles() {
 
     // eslint-disable-next-line func-names
     gulp.watch(src, function svgSpriteCreate() {
-      return svgSprite(src, dest, name, browserSync);
+      return svgSprite({src, dest, name, browserSync});
     });
-    svgSprite(src, dest, name);
+    svgSprite({src, dest, name});
   });
 
   if (browserSync !== false) {
