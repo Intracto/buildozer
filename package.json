@@ -14,7 +14,6 @@
     "chalk": "^2.4.2",
     "copy": "^0.3.2",
     "cssnano": "^4.1.10",
-    "del": "^5.1.0",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
     "gulp-cli": "^2.2.0",
@@ -29,6 +28,7 @@
     "gulp-terser": "^1.2.0",
     "js-yaml": "^3.13.1",
     "rfs": "^9.0.0",
+    "rimraf": "^3.0.0",
     "yargs": "^14.0.0"
   },
   "devDependencies": {
