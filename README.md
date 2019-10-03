@@ -162,6 +162,20 @@ You can combine multiple `<svg>`s you use into one sprite. Just drop the files i
 
 [Browsersync](https://browsersync.io) can be enabled for as well serving static sites (`server` option) or dynamic sites (`proxy` option). With the `reload` option, you can define a glob to watch for. Browsersync will then reload the page if one of the matching files is changed. For example, use `**/*.html` to watch for changes in HTML files.
 
+## Browserslist
+Browserslist is a single configuration for all tools that need to know what browsers you support. Just create a Browserslist compatible configuration and define the browsers you want to support.
+
+For example you could place a `.browserslistrc` in your document root.
+```
+# Browsers that we support
+
+last 1 version
+> 1%
+IE 10 # sorry
+```
+
+Tools like Autoprefixer will compile according to the Browserslist configuration you defined.
+
 ## RFS
 
 The [RFS](https://github.com/twbs/rfs) PostCSS plugin is included by default which allows you to use the `rfs()` function in your Sass.
