@@ -145,6 +145,7 @@ svg-sprite:
 browsersync:
   server: null # Static sites
   proxy: null # Dynamic sites
+  reload: null # Glob to watch for reload
 ```
 
 If you want to configure your own paths, you can run `buildozer config` to generate a `.buildozerrc` in your folder and change the paths however you like. All `src` paths are prefixed `src_base_path`, the `dest` paths are prefixed with `dest_base_path`.
@@ -159,7 +160,7 @@ You can combine multiple `<svg>`s you use into one sprite. Just drop the files i
 
 ## Browser sync
 
-[Browsersync](https://browsersync.io) can be enabled for as well serving static sites (`server` option) or dynamic sites (`proxy` option).
+[Browsersync](https://browsersync.io) can be enabled for as well serving static sites (`server` option) or dynamic sites (`proxy` option). With the `reload` option, you can define a glob to watch for. Browsersync will then reload the page if one of the matching files is changed. For example, use `**/*.html` to watch for changes in HTML files.
 
 ## RFS
 

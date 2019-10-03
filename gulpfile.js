@@ -84,6 +84,10 @@ function watchFiles() {
       notify: false,
       open: false
     });
+
+    if (config.browsersync.reload) {
+      gulp.watch(config.browsersync.reload).on('change', browserSync.reload);
+    }
   }
 }
 
