@@ -165,6 +165,25 @@ You can combine multiple `<svg>`s you use into one sprite. Just drop the files i
 
 The [RFS](https://github.com/twbs/rfs) PostCSS plugin is included by default which allows you to use the `rfs()` function in your Sass.
 
+## PostCSS plugins
+
+Loading extra PostCSS plugins can be done by overriding the default config. This can be done in multiple ways documented on the [postcss-load-config](https://github.com/michael-ciniawsky/postcss-load-config) repository.
+
+For example you could place a `postcss.config.js` in your document root.
+
+```javascript
+module.exports = () => {
+  return {
+        plugins: {
+          'rfs': {},
+          'autoprefixer': {},
+          'cssnano': {}
+        }
+    }
+};
+
+```
+
 ## Copy
 
 Additionally files can be copied before if needed. Useful whenever you need some files from the `node_modules` folder which you don't have available on production.
