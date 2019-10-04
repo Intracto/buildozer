@@ -27,6 +27,7 @@
     "gulp-svg-sprite": "^1.5.0",
     "gulp-terser": "^1.2.0",
     "js-yaml": "^3.13.1",
+    "merge-stream": "^2.0.0",
     "postcss-load-config": "^2.1.0",
     "rfs": "^9.0.0",
     "rimraf": "^3.0.0",
