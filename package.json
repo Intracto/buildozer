@@ -1,6 +1,6 @@
 {
   "name": "buildozer",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Simple tool to build your frontend.",
   "main": "bin/buildozer.js",
   "bin": {
