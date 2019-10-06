@@ -1,5 +1,10 @@
 <p align="center">
   <img src="https://raw.githubusercontent.com/MartijnCuppens/buildozer/master/.github/buildozer.svg?sanitize=true" alt="Buildozer logo">
+  <br>
+  <br>
+  <a href="https://npmjs.org/package/buildozer"><img src="https://img.shields.io/npm/v/buildozer.svg" alt="npm version"></a>
+  <a href="https://github.com/Intracto/buildozer/actions"><img src="https://github.com/Intracto/buildozer/workflows/Run%20tests/badge.svg" alt="Actions status"></a>
+  <img src="https://david-dm.org/Intracto/buildozer.svg" alt="Dependencies">
 </p>
 
 Buildozer is a simple build system to compile Sass, minify images or SVGs and compile javascript. It's built on top of [Gulp](https://gulpjs.com/) but doesn't require any configuration to get started.
