@@ -3,3 +3,6 @@
 
 # Packages
 /node_modules
+
+# Generated test files
+/test/*/dest
