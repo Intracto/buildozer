@@ -37,7 +37,9 @@
     "xo": "^0.24.0"
   },
   "scripts": {
-    "test": "xo"
+    "test": "npm run lint && npm run test-1",
+    "lint": "xo",
+    "test-1": "cd test/test1 && node ../../bin/buildozer build"
   },
   "files": [
     "/lib",
