@@ -34,7 +34,7 @@
     "yargs": "^14.0.0"
   },
   "devDependencies": {
-    "xo": "^0.24.0"
+    "xo": "^0.25.3"
   },
   "scripts": {
     "test": "npm run lint && npm run test-1",
