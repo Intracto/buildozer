@@ -45,7 +45,7 @@ function watchFiles() {
   config['js-concat'].forEach(js => {
     const src = config.src_base_path + js.src;
     const dest = config.dest_base_path + js.dest;
-    const name = config.dest_base_path + js.name;
+    const {name} = js;
 
     // eslint-disable-next-line func-names
     gulp.watch(src, function concat() {
@@ -68,7 +68,7 @@ function watchFiles() {
   config['svg-sprite'].forEach(js => {
     const src = config.src_base_path + js.src;
     const dest = config.dest_base_path + js.dest;
-    const name = config.dest_base_path + js.name;
+    const {name} = js;
 
     // eslint-disable-next-line func-names
     gulp.watch(src, function svgSpriteCreate() {
