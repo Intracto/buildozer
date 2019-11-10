@@ -65,10 +65,10 @@ function watchFiles() {
     imgCompile({src, dest});
   });
 
-  config['svg-sprite'].forEach(js => {
-    const src = config.src_base_path + js.src;
-    const dest = config.dest_base_path + js.dest;
-    const {name} = js;
+  config['svg-sprite'].forEach(svg => {
+    const src = config.src_base_path + svg.src;
+    const dest = config.dest_base_path + svg.dest;
+    const {name} = svg;
 
     // eslint-disable-next-line func-names
     gulp.watch(src, function svgSpriteCreate() {
