@@ -1,0 +1,3 @@
+copy:
+  - src: test.txt
+    dest: dest

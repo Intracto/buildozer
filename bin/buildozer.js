@@ -1,14 +1,5 @@
 #!/usr/bin/env node
-
-function argsInclude(list) {
-  let value = false;
-  list.forEach(item => {
-    if (process.argv.includes(item)) {
-      value = true;
-    }
-  });
-  return value;
-}
+const argsInclude = require('../lib/args-include');
 
 if (argsInclude(['build', 'watch', 'css', 'img', 'js', 'clean', 'copy', 'js-concat', 'svg-sprite'])) {
   // Run gulp
