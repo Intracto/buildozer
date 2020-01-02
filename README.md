@@ -81,6 +81,15 @@ The `watch` task will watch the source files for changes and rebuild a task when
 
 `buildozer clean` is run to clear all `dest` folders. `buildozer copy`, `buildozer css`, `buildozer js`, `buildozer js-concat` , `buildozer svg-sprite` and `buildozer img` can be used to run the subtasks of `buildozer build`.
 
+### Order of script execution
+
+- **Set environment**: Set the environment to `production` for the `build` task. This way, the assets are minified on production.
+- **Clean**: Remove all files from destination folders.
+- **Copy**: Copy all files defined in `copy` array.
+- **CSS**: Compile CSS.
+- **JS**: Compile javascript files and concat if configured.
+- **Image**: Minify images & generate svg sprite if configured.
+
 ## Default folder structure
 
 Buildozer knows what files it needs to compile because it uses a predefined folder structure:
