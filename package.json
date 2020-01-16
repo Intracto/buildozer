@@ -19,7 +19,7 @@
     "gulp-babel": "^8.0.0",
     "gulp-cli": "^2.2.0",
     "gulp-concat": "^2.6.1",
-    "gulp-imagemin": "^6.1.0",
+    "gulp-imagemin": "^7.0.0",
     "gulp-newer": "^1.4.0",
     "gulp-plumber": "^1.2.1",
     "gulp-postcss": "^8.0.0",
