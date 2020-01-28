@@ -19,7 +19,7 @@ npm i buildozer
 yarn add buildozer
 ```
 
-Once installed, the buildozer scripts can be executed:
+Once installed, the Buildozer scripts can be executed:
 
 ```shell
 # Using npm's script
@@ -51,6 +51,7 @@ buildozer build
 ```
 
 The `build` task can be used for production environments. The build command:
+
 - Copy files [if needed](#copy)
 - Compiles Sass to CSS
 - Use [autoprefixer](https://github.com/postcss/autoprefixer) for vendor prefixing
@@ -58,7 +59,7 @@ The `build` task can be used for production environments. The build command:
 - Minifies images and svg
 - Transpiles ES6 to ES5
 - Minifies javascript
-- Concatenate `.js` files in the `concat` folder 
+- Concatenate `.js` files in the `concat` folder
 
 ### Watch
 
@@ -67,6 +68,7 @@ buildozer watch
 ```
 
 The `watch` task will watch the source files for changes and rebuild a task when a change is detected:
+
 - Copy files [if needed](#copy)
 - Clean all dest folders
 - Compiles Sass to CSS
@@ -164,7 +166,7 @@ If you want to configure your own paths, you can run `buildozer config` to gener
 
 ## Concat
 
-If you want to combine multiple `.js` files into one file, you can drop the files in `js/concat` and buildozer output a single `all.js` file. The files themselves are also compiled to the destination folder for whenever they need to be used stand alone.
+If you want to combine multiple `.js` files into one file, you can drop the files in `js/concat` and Buildozer will generate a single `all.js` file. The files themselves are also compiled to the destination folder for whenever they need to be used stand alone.
 
 ## SVG sprites
 
@@ -175,10 +177,12 @@ You can combine multiple `<svg>`s you use into one sprite. Just drop the files i
 [Browsersync](https://browsersync.io) can be enabled for as well serving static sites (`server` option) or dynamic sites (`proxy` option). With the `reload` option, you can define a glob to watch for. Browsersync will then reload the page if one of the matching files is changed. For example, use `**/*.html` to watch for changes in HTML files.
 
 ## Browserslist
+
 Browserslist is a single configuration for all tools that need to know what browsers you support. Just create a Browserslist compatible configuration and define the browsers you want to support.
 
 For example you could place a `.browserslistrc` in your document root.
-```
+
+```text
 # Browsers that we support
 
 last 1 version
@@ -208,7 +212,6 @@ module.exports = () => {
         }
     }
 };
-
 ```
 
 ## Copy
