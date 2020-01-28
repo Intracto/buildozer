@@ -223,6 +223,12 @@ copy:
     dest: js/vendor
 ```
 
+## Options
+
+### `verbose`
+
+Use `buildozer build --verbose` to output more details. With this option all files which are copied are logged. You'll also see some more information about the images which are compressed.
+
 ## Thanks
 
 Thanks [Intracto](https://www.intracto.com/?utm_source=github&utm_campaign=buildozer) for development maintenance & [icons8](https://www.icons8.com/?utm_source=github&utm_campaign=buildozer) for providing a logo.
