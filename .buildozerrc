@@ -21,3 +21,8 @@ browsersync:
   server: null # Static sites
   proxy: null # Dynamic sites
   reload: null # Glob to watch for reload
+config_search:
+  enabled: false
+  ignore:
+    - '**/vendor/**'
+    - '**/node_modules/**'
