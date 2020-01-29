@@ -18,7 +18,7 @@ process.chdir(process.env.INIT_CWD);
 async function watchFiles() {
   await configs.then(configurations => {
     // Only load browserSync when needed
-    const browserSync = configs[0].browsersync.proxy || configs[0].browsersync.server ? require('browser-sync').create() : false;
+    const browserSync = configurations[0].browsersync.proxy || configurations[0].browsersync.server ? require('browser-sync').create() : false;
 
     configurations.forEach((config, i) => {
       config.scss.forEach(scss => {
@@ -51,7 +51,7 @@ async function watchFiles() {
         });
 
         // Concat JS files once at watch startup
-        jsConcat({src: js.src, dest: js.dest, js: js.name});
+        jsConcat({src: js.src, dest: js.dest, name: js.name});
       });
 
       config.img.forEach(i => {
