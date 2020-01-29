@@ -226,6 +226,42 @@ copy:
     dest: js/vendor
 ```
 
+## Config search
+
+In your `.buildozerrc` configuration file, it is possible to enable config search. With this feature you can drop `.buildozerrc` in sub folders within your project which will be detected by Buildozer. This way you can bundle your CSS, JS or images in a folder they belong to without the need of a seperate setup. Make sure to exclude folders in which you do not want to look for configuration files with the `ignore` option.
+
+```yaml
+config_search:
+  enabled: true
+  ignore:
+    - '**/vendor/**'
+    - '**/node_modules/**'
+```
+
+The following structure represents a simplified Drupal folder structure in which `.buildozerrc` files are used to create a modular setup:
+
+```text
+drupal_project/
+├── modules/
+|   └── custom/
+|       ├── custom_module_1/
+|       |   ├── js/
+|       |   │   └── module-js.js
+|       |   └── .buildozerrc
+|       └── custom_module_2/
+|           ├── img/
+|           │   └── module-img.svg
+|           └── .buildozerrc
+└── themes/
+    └── custom/
+      └── custom_theme/
+          ├── scss/
+          │   └── main.scss
+          ├── js/
+          │   └── main.js
+          └── .buildozerrc
+```
+
 ## Options
 
 ### `verbose`

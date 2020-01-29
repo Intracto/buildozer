@@ -1,0 +1,5 @@
+config_search:
+  enabled: true
+  ignore:
+    - '**/vendor/**'
+    - '**/node_modules/**'
