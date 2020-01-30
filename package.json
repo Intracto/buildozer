@@ -28,12 +28,14 @@
     "gulp-postcss": "^8.0.0",
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.5",
+    "gulp-stylelint": "^13.0.0",
     "gulp-svg-sprite": "^1.5.0",
     "gulp-terser": "^1.2.0",
     "postcss-load-config": "^2.1.0",
     "rfs": "^9.0.0",
     "rimraf": "^3.0.0",
-    "sass": "^1.25.0"
+    "sass": "^1.25.0",
+    "stylelint": "^13.0.0"
   },
   "devDependencies": {
     "npm-run-all": "^4.1.5",
@@ -48,6 +50,9 @@
     "test-copy": "cd test/copy && node ../../bin/buildozer build",
     "test-sass-module": "cd test/sass-module && node ../../bin/buildozer build",
     "test-config-search": "cd test/config-search && node ../../bin/buildozer build",
+    "test-stylelint": "cd test/stylelint && node ../../bin/buildozer build",
+    "test-fails": "node test/fail-tests.js",
+    "fail-stylelint": "cd test/fail-stylelint && node ../../bin/buildozer build",
     "diff-check": "node test/check-diff.js"
   },
   "files": [

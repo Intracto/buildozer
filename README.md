@@ -268,6 +268,25 @@ drupal_project/
 
 Use `buildozer build --verbose` to output more details. With this option all files which are copied are logged. You'll also see some more information about the images which are compressed.
 
+## Contributing to Buildozer
+
+Looking to contribute something to Buildozer? Just have a look at the [open issues](https://github.com/Intracto/buildozer/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc) to check if there's anything interesting. You can also just have a look at the source code to see if there's anything which can be improved.
+
+### Getting started
+
+These are the steps you'll need to take to create a new PR.
+
+- Make sure you have the [latest node and npm version](https://nodejs.org/en/) installed
+- Fork the buildozer repository
+- Clone your fork
+- Make a new branch describing what you want to fix/add
+- Develop your excellent code
+  - Make sure to add tests if needed
+  - Some tests are meant to fail, these tests are checked in `test/fail-tests.js`
+- Run `npm test` to check every test passes
+- Commit, push & create a PR
+- Describe what is changed in your PR description
+
 ## Thanks
 
 Thanks [Intracto](https://www.intracto.com/?utm_source=github&utm_campaign=buildozer) for development maintenance & [icons8](https://www.icons8.com/?utm_source=github&utm_campaign=buildozer) for providing a logo.
