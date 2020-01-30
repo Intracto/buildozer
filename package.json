@@ -47,7 +47,8 @@
     "test-default": "cd test/default && node ../../bin/buildozer build",
     "test-copy": "cd test/copy && node ../../bin/buildozer build",
     "test-sass-module": "cd test/sass-module && node ../../bin/buildozer build",
-    "test-2": "cd test/config-search && node ../../bin/buildozer build"
+    "test-config-search": "cd test/config-search && node ../../bin/buildozer build",
+    "diff-check": "node test/check-diff.js"
   },
   "files": [
     "/lib",

@@ -1,0 +1,1 @@
+"use strict";var q=3,test=function(t){console.log(t)};test(q);

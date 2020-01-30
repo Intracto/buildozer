@@ -28,3 +28,6 @@ jobs:
 
       - name: Run tests
         run: npm test
+
+      - name: Check if generated files are up to date
+        run: npm run diff-check
