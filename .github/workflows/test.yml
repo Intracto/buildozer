@@ -30,4 +30,4 @@ jobs:
         run: npm test
 
       - name: Check if generated files are up to date
-        run: npm check-diff
+        run: npm run diff-check
