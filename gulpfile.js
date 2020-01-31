@@ -23,8 +23,9 @@ async function watchFiles() {
     configurations.forEach((config, i) => {
       config.scss.forEach(scss => {
         // Watch CSS & Sass files, we name the function so that Gulp outputs the correct name
+        // Also watch for stylelint changes
         // eslint-disable-next-line func-names
-        gulp.watch(scss.src, function css() {
+        gulp.watch([scss.src, '**/{.stylelintrc,.stylelintrc.json,.stylelintrc.yaml,.stylelintrc.yml,.stylelintrc.js,stylelintrc.config.js}'], function css() {
           return cssCompile({src: scss.src, dest: scss.dest, browserSync});
         });
 
