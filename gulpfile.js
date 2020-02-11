@@ -25,7 +25,7 @@ async function watchFiles() {
         // Watch CSS & Sass files, we name the function so that Gulp outputs the correct name
         // Also watch for stylelint changes
         // eslint-disable-next-line func-names
-        gulp.watch([scss.src, '**/{.stylelintrc,.stylelintrc.json,.stylelintrc.yaml,.stylelintrc.yml,.stylelintrc.js,stylelintrc.config.js}'], function css() {
+        gulp.watch(scss.watch, function css() {
           return cssCompile({src: scss.src, dest: scss.dest, browserSync});
         });
 
@@ -36,7 +36,7 @@ async function watchFiles() {
       config.js.forEach(j => {
         // Watch JS files, we name the function so that Gulp outputs the correct name
         // eslint-disable-next-line func-names
-        gulp.watch(j.src, function js() {
+        gulp.watch(j.watch, function js() {
           return jsCompile({src: j.src, dest: j.dest, browserSync});
         });
 
@@ -47,7 +47,7 @@ async function watchFiles() {
       config['js-concat'].forEach(js => {
         // Watch JS files which need to be concatenated, we name the function so that Gulp outputs the correct name
         // eslint-disable-next-line func-names
-        gulp.watch(js.src, function concat() {
+        gulp.watch(js.watch, function concat() {
           return jsConcat({src: js.src, dest: js.dest, js: js.name, browserSync});
         });
 
@@ -58,7 +58,7 @@ async function watchFiles() {
       config.img.forEach(i => {
         // Watch for image changes, we name the function so that Gulp outputs the correct name
         // eslint-disable-next-line func-names
-        gulp.watch(i.src, function img() {
+        gulp.watch(i.watch, function img() {
           return imgCompile({src: i.src, dest: i.dest, browserSync});
         });
 
@@ -69,7 +69,7 @@ async function watchFiles() {
       config['svg-sprite'].forEach(sprite => {
         // Watch for SVG sprite changes, we name the function so that Gulp outputs the correct name
         // eslint-disable-next-line func-names
-        gulp.watch(sprite.src, function svgSpriteCreate() {
+        gulp.watch(sprite.watch, function svgSpriteCreate() {
           return svgSprite({src: sprite.src, dest: sprite.dest, name: sprite.name, browserSync});
         });
 
