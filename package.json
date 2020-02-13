@@ -43,8 +43,8 @@
     "xo": "^0.25.3"
   },
   "scripts": {
-    "test": "npm-run-all lint tests",
-    "tests": "npm-run-all test-* --parallel",
+    "test": "npm-run-all lint unit-tests",
+    "unit-tests": "npm-run-all test-* --parallel",
     "lint": "xo",
     "test-default": "cd test/default && node ../../bin/buildozer build",
     "test-copy": "cd test/copy && node ../../bin/buildozer build",
