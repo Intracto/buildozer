@@ -22,6 +22,7 @@
     "gulp-babel": "^8.0.0",
     "gulp-cli": "^2.2.0",
     "gulp-concat": "^2.6.1",
+    "gulp-eslint": "^6.0.0",
     "gulp-imagemin": "^7.1.0",
     "gulp-newer": "^1.4.0",
     "gulp-plumber": "^1.2.1",
@@ -51,6 +52,7 @@
     "test-sass-module": "cd test/sass-module && node ../../bin/buildozer build",
     "test-config-search": "cd test/config-search && node ../../bin/buildozer build",
     "test-stylelint": "cd test/stylelint && node ../../bin/buildozer build",
+    "test-eslint": "cd test/eslint && node ../../bin/buildozer build",
     "test-fails": "node test/fail-tests.js",
     "fail-stylelint": "cd test/fail-stylelint && node ../../bin/buildozer build",
     "diff-check": "node test/check-diff.js"
