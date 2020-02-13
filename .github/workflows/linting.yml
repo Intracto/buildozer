@@ -1,4 +1,4 @@
-name: Unit tests
+name: Linting
 on: [pull_request]
 
 jobs:
@@ -9,7 +9,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        node: [8, 10, 12]
+        node: [12]
 
     steps:
       - name: Clone repository
@@ -26,8 +26,5 @@ jobs:
       - name: Install npm dependencies
         run: npm ci
 
-      - name: Run tests
-        run: npm run unit-tests
-
-      - name: Check if generated files are up to date
-        run: npm run diff-check
+      - name: Run linting
+        run: npm run lint
