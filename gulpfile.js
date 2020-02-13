@@ -26,7 +26,7 @@ async function watchFiles() {
         // Also watch for stylelint changes
         // eslint-disable-next-line func-names
         gulp.watch(scss.watch, function css() {
-          return cssCompile({src: scss.src, dest: scss.dest, browserSync});
+          return cssCompile({src: scss.src, dest: scss.dest, cwd: config.cwd, browserSync});
         });
 
         // Compile CSS once at watch startup
@@ -37,7 +37,7 @@ async function watchFiles() {
         // Watch JS files, we name the function so that Gulp outputs the correct name
         // eslint-disable-next-line func-names
         gulp.watch(j.watch, function js() {
-          return jsCompile({src: j.src, dest: j.dest, browserSync});
+          return jsCompile({src: j.src, dest: j.dest, cwd: config.cwd, browserSync});
         });
 
         // Compile JS once at watch startup
