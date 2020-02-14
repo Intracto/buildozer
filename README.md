@@ -7,7 +7,23 @@
   <img src="https://david-dm.org/Intracto/buildozer.svg" alt="Dependencies">
 </p>
 
-Buildozer is a simple build system to compile Sass, minify images or SVGs and compile javascript. It's built on top of [Gulp](https://gulpjs.com/) but doesn't require any configuration to get started.
+Buildozer is a simple build system to compile Sass, minify images or SVGs and compile javascript. It's a wrapper built around [Gulp](https://gulpjs.com/) which frees you from configuring and maintaining packages.
+
+- [Instalation](#instalation)
+- [Commands](#commands)
+- [Order of script execution](#order-of-script-execution)
+- [Defaultt folder structure](#default-folder-structure)
+- [Customizing the folder structure](#customizing-the-folder-structure)
+- [Browserslist](#browserslist)
+- [RFS](#rfs)
+- [PostCSS plugins](#postcss-plugins)
+- [Copy](#copy)
+- [RFS](#rfs)
+- [Config search](#config-search)
+- [Linting](#linting)
+- [Options](#options)
+- [Contributing to Buildozer](#contributing-to-buildozer)
+- [Tanks](#thanks)
 
 ## Installation
 
@@ -17,27 +33,6 @@ npm i buildozer
 
 # Or install with yarn
 yarn add buildozer
-```
-
-Once installed, the Buildozer scripts can be executed:
-
-```shell
-# Using npm's script
-npx buildozer build
-
-# Or using yarn
-yarn buildozer build
-```
-
-The scripts can also be added to your `package.json` if needed:
-
-```json
-{
-  "scripts" : {
-    "build": "buildozer build",
-    "watch": "buildozer watch"
-  }
-}
 ```
 
 ## Commands
@@ -53,6 +48,7 @@ buildozer build
 The `build` task can be used for production environments. The build command:
 
 - Copy files [if needed](#copy)
+- Lint source code if [configured](#linting)
 - Compiles Sass to CSS
 - Use [autoprefixer](https://github.com/postcss/autoprefixer) for vendor prefixing
 - Minifies the CSS output
@@ -71,6 +67,7 @@ The `watch` task will watch the source files for changes and rebuild a task when
 
 - Copy files [if needed](#copy)
 - Clean all dest folders
+- Lint source code if [configured](#linting)
 - Compiles Sass to CSS
 - Use [autoprefixer](https://github.com/postcss/autoprefixer) for vendor prefixing
 - Add scss sourcemaps
@@ -132,7 +129,7 @@ project/
         └── …
 ```
 
-## Using your own folder structure
+## Customizing the folder structure
 
 Buildozer uses a `.buildozerrc` configuration file which uses the yaml syntax and defines which paths are used. By default, this file looks like this:
 
@@ -252,21 +249,59 @@ drupal_project/
 |           ├── img/
 |           │   └── module-img.svg
 |           └── .buildozerrc
-└── themes/
-    └── custom/
-      └── custom_theme/
-          ├── scss/
-          │   └── main.scss
-          ├── js/
-          │   └── main.js
-          └── .buildozerrc
+├── themes/
+|   └── custom/
+|     └── custom_theme/
+|         ├── scss/
+|         │   └── main.scss
+|         ├── js/
+|         │   └── main.js
+|         └── .buildozerrc
+└── .buildozerrc # In this file `config_search` is enabled
+```
+
+## Linting
+
+As soon as Buildozer detects a linting configuration file, linting will be enabled. Buildozer takes a pretty aggressive approach when the linting rules are not followed: if the linting fails, no CSS or JS will be build.
+
+### ESLint
+
+[ESLint](https://github.com/eslint/eslint#readme) is JavaScript linter which can easily be enabled by dropping your [cosmiconfig](https://github.com/davidtheclark/cosmiconfig#readme) configuration in the folder which you want to be linted.
+
+```text
+project/
+├── scss/
+│   └── …
+├── js/
+│   └── …
+├── img/
+│   └── …
+├── .buildozer
+├── .eslintignore # Optional ignore file
+└── .eslintrc
+```
+
+### Stylelint
+
+Apart from just javascript linting, Buildozer also provides CSS linting with [stylelint](https://github.com/stylelint/stylelint). Just drop the configuration file to get started:
+
+```text
+project/
+├── scss/
+│   └── …
+├── js/
+│   └── …
+├── img/
+│   └── …
+├── .buildozer
+└── .stylelint
 ```
 
 ## Options
 
 ### `verbose`
 
-Use `buildozer build --verbose` to output more details. With this option all files which are copied are logged. You'll also see some more information about the images which are compressed.
+Use `buildozer build --verbose` (or watch) to output more details. With this option all files which are copied are logged. You'll also see some more information about the images which are compressed.
 
 ## Contributing to Buildozer
 
