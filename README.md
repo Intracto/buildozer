@@ -9,7 +9,7 @@
 
 Buildozer is a simple build system to compile Sass, minify images or SVGs and compile javascript. It's a wrapper built around [Gulp](https://gulpjs.com/) which frees you from configuring and maintaining packages.
 
-- [Instalation](#instalation)
+- [Installation](#installation)
 - [Commands](#commands)
 - [Order of script execution](#order-of-script-execution)
 - [Defaultt folder structure](#default-folder-structure)
@@ -23,7 +23,7 @@ Buildozer is a simple build system to compile Sass, minify images or SVGs and co
 - [Linting](#linting)
 - [Options](#options)
 - [Contributing to Buildozer](#contributing-to-buildozer)
-- [Tanks](#thanks)
+- [Thanks](#thanks)
 
 ## Installation
 
