@@ -303,6 +303,10 @@ project/
 
 Use `buildozer build --verbose` (or watch) to output more details. With this option all files which are copied are logged. You'll also see some more information about the images which are compressed.
 
+### `fix`
+
+Use `buildozer watch --fix` (or build) to fix linting issues that can be fixed automatically.
+
 ## Contributing to Buildozer
 
 Looking to contribute something to Buildozer? Just have a look at the [open issues](https://github.com/Intracto/buildozer/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc) to check if there's anything interesting. You can also just have a look at the source code to see if there's anything which can be improved.
