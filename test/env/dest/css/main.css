@@ -1,0 +1,21 @@
+body {
+  background: blue;
+}
+
+body {
+  background: red;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  font-size: calc(1.375rem + 1.5vw);
+  padding: calc(1.325rem + 0.9vw);
+}
+
+@media (min-width: 1200px) {
+
+  body {
+  font-size: 2.5rem;
+  padding: 2rem;
+  }
+}
+/*# sourceMappingURL=main.css.map */

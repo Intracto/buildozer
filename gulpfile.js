@@ -93,14 +93,25 @@ async function watchFiles() {
   });
 }
 
-function setProduction(cb) {
-  process.env.NODE_ENV = 'production';
+function setEnvironment(cb) {
+  // Detect env parameter
+  process.argv.forEach(arg => {
+    if (arg.startsWith('--env=')) {
+      process.env.NODE_ENV = arg.slice(6);
+    }
+  });
+
+  // Set to production if env is not set and build is run
+  if (process.env.NODE_ENV === undefined && process.argv.includes('build')) {
+    process.env.NODE_ENV = 'production';
+  }
+
   cb();
 }
 
 // Define complex tasks
-const build = gulp.series(setProduction, clean, copy, gulp.parallel(css, js, img));
-const watch = gulp.series(clean, copy, watchFiles);
+const build = gulp.series(setEnvironment, clean, copy, gulp.parallel(css, js, img));
+const watch = gulp.series(setEnvironment, clean, copy, watchFiles);
 
 // Export tasks
 exports.copy = copy;
@@ -110,6 +121,6 @@ exports.js = js;
 exports['js-concat'] = jsConcat;
 exports['svg-sprite'] = svgSprite;
 exports.clean = clean;
-exports.setProduction = setProduction;
+exports.setEnvironment = setEnvironment;
 exports.build = build;
 exports.watch = watch;
