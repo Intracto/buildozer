@@ -34,7 +34,6 @@
     "gulp-svg-sprite": "^1.5.0",
     "gulp-terser": "^1.2.0",
     "postcss-load-config": "^2.1.0",
-    "rfs": "^9.0.0",
     "rimraf": "^3.0.0",
     "sass": "^1.25.0",
     "stylelint": "^13.0.0",
@@ -43,7 +42,7 @@
   },
   "devDependencies": {
     "npm-run-all": "^4.1.5",
-    "postcss-pxtorem": "^4.0.1",
+    "rfs": "^9.0.2",
     "xo": "^0.26.0"
   },
   "scripts": {

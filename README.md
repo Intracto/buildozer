@@ -201,10 +201,6 @@ IE 10 # sorry
 
 Tools like Autoprefixer will compile according to the Browserslist configuration you defined.
 
-## RFS
-
-The [RFS](https://github.com/twbs/rfs) PostCSS plugin is included by default which allows you to use the `rfs()` function in your Sass.
-
 ## PostCSS plugins
 
 Loading extra PostCSS plugins can be done by overriding the default config. This can be done in multiple ways documented on the [postcss-load-config](https://github.com/michael-ciniawsky/postcss-load-config) repository.

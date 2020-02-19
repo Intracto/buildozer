@@ -1,5 +1,10 @@
 body {
   background: red;
   appearance: none;
-  font-size: 1.25rem;
+  font-size: calc(1.275rem + 0.3vw);
+}
+@media (min-width: 1200px) {
+  body {
+  font-size: 1.5rem;
+  }
 }
