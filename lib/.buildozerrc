@@ -1,10 +1,22 @@
 src_base_path: ./
 dest_base_path: ./
 scss:
+  - src: scss/**/*.css
+    dest: dest/css
   - src: scss/**/*.scss
     dest: dest/css
+  - src: scss/**/*.sass
+    dest: dest/css
 img:
-  - src: img/**/*.{png,jpg,jpeg,gif,svg}
+  - src: img/**/*.png
+    dest: dest/img
+  - src: img/**/*.jpg
+    dest: dest/img
+  - src: img/**/*.jpeg
+    dest: dest/img
+  - src: img/**/*.gif
+    dest: dest/img
+  - src: img/**/*.svg
     dest: dest/img
 js:
   - src: js/**/*.js
