@@ -1,6 +1,6 @@
 {
   "name": "buildozer",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Simple tool to build your frontend.",
   "main": "bin/buildozer.js",
   "bin": {
@@ -59,6 +59,7 @@
     "test-stylelint": "cd test/stylelint && node ../../bin/buildozer build",
     "test-eslint": "cd test/eslint && node ../../bin/buildozer build",
     "test-fails": "node test/fail-tests.js",
+    "test-version-check": "node test/version-check.js",
     "fail-stylelint": "cd test/fail-stylelint && node ../../bin/buildozer build",
     "diff-check": "node test/check-diff.js"
   },
