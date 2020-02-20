@@ -316,6 +316,10 @@ Use `buildozer build --verbose` (or watch) to output more details. With this opt
 
 Use `buildozer watch --fix` (or build) to fix linting issues that can be fixed automatically.
 
+### `disable-autoprefixer`
+
+Autoprefixer will always run, even if you don't configure it in a custom PostCSS config. To disable it, use `buildozer build --disable-autoprefixer`.
+
 ### `env`
 
 The environment variable `env` determines whether files need to be minified. Minification will be enabled whenever this variable is set to `production`. If anything else is set, minification will be disabled. By default, the `build` command uses `production`, unless the variable is overridden by something else like `buildozer build --env=development`.
