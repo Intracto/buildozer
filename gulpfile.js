@@ -21,16 +21,17 @@ async function watchFiles() {
     const browserSync = configurations[0].browsersync.proxy || configurations[0].browsersync.server ? require('browser-sync').create() : false;
 
     configurations.forEach((config, i) => {
-      config.scss.forEach(scss => {
+      config.css.forEach(item => {
         // Watch CSS & Sass files, we name the function so that Gulp outputs the correct name
         // Also watch for stylelint changes
+        console.log(item);
         // eslint-disable-next-line func-names
-        gulp.watch(scss.watch, function css() {
-          return cssCompile({src: scss.src, dest: scss.dest, cwd: config.cwd, browserSync});
+        gulp.watch(item.watch, function css() {
+          return cssCompile({src: item.src, dest: item.dest, cwd: config.cwd, browserSync});
         });
 
         // Compile CSS once at watch startup
-        cssCompile({src: scss.src, dest: scss.dest});
+        cssCompile({src: item.src, dest: item.dest});
       });
 
       config.js.forEach(j => {

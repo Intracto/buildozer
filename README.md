@@ -48,6 +48,7 @@ buildozer build
 The `build` task can be used for production environments. The build command:
 
 - Copy files [if needed](#copy)
+- Clean all destination folders
 - Lint source code if [configured](#linting)
 - Compiles Sass to CSS
 - Use [autoprefixer](https://github.com/postcss/autoprefixer) for vendor prefixing
@@ -66,11 +67,11 @@ buildozer watch
 The `watch` task will watch the source files for changes and rebuild a task when a change is detected:
 
 - Copy files [if needed](#copy)
-- Clean all dest folders
+- Clean all destination folders
 - Lint source code if [configured](#linting)
 - Compiles Sass to CSS
 - Use [autoprefixer](https://github.com/postcss/autoprefixer) for vendor prefixing
-- Add scss sourcemaps
+- Add Sass sourcemaps if applicable
 - Minifies images and svg
 - Transpiles ES6 to ES5
 - Concatenate `.js` files in the `concat` folder
@@ -78,7 +79,7 @@ The `watch` task will watch the source files for changes and rebuild a task when
 
 ### Separate tasks
 
-`buildozer clean` is run to clear all `dest` folders. `buildozer copy`, `buildozer css`, `buildozer js`, `buildozer js-concat` , `buildozer svg-sprite` and `buildozer img` can be used to run the subtasks of `buildozer build`.
+`buildozer clean` is run to clear all folders defined in `dest`. `buildozer copy`, `buildozer css`, `buildozer js`, `buildozer js-concat` , `buildozer svg-sprite` and `buildozer img` can be used to run the subtasks of `buildozer build`.
 
 ## Order of script execution
 
@@ -95,7 +96,7 @@ Buildozer knows what files it needs to compile because it uses a predefined fold
 
 ```text
 project/
-├── scss/
+├── css/
 │   ├── main.scss
 │   └── …
 ├── js/
@@ -114,7 +115,7 @@ project/
 
 ```text
 project/
-└── dest/
+└── dist/
     ├── css/
     │   ├── main.css
     │   └── …
@@ -136,35 +137,35 @@ Buildozer uses a `.buildozerrc` configuration file which uses the yaml syntax an
 ```yaml
 src_base_path: ./
 dest_base_path: ./
-scss:
-  - src: scss/**/*.css
-    dest: dest/css
-  - src: scss/**/*.scss
-    dest: dest/css
-  - src: scss/**/*.sass
-    dest: dest/css
+css:
+  - src: css/**/*.css
+    dest: dist/css
+  - src: css/**/*.scss
+    dest: dist/css
+  - src: css/**/*.sass
+    dest: dist/css
 img:
   - src: img/**/*.png
-    dest: dest/img
+    dest: dist/img
   - src: img/**/*.jpg
-    dest: dest/img
+    dest: dist/img
   - src: img/**/*.jpeg
-    dest: dest/img
+    dest: dist/img
   - src: img/**/*.gif
-    dest: dest/img
+    dest: dist/img
   - src: img/**/*.svg
-    dest: dest/img
+    dest: dist/img
 js:
   - src: js/**/*.js
-    dest: dest/js
+    dest: dist/js
 js-concat:
   - src: js/concat/*.js
     name: all.js
-    dest: dest/js
+    dest: dist/js
 svg-sprite:
   - src: img/sprite/*.svg
     name: sprite.svg
-    dest: dest/img/sprite
+    dest: dist/img/sprite
 browsersync:
   server: null # Static sites
   proxy: null # Dynamic sites
@@ -179,7 +180,7 @@ If you want to combine multiple `.js` files into one file, you can drop the file
 
 ## SVG sprites
 
-You can combine multiple `<svg>`s you use into one sprite. Just drop the files in the `img/sprite` folder and the sprite will be generated as `dest/img/sprite/sprite.svg`.
+You can combine multiple `<svg>`s you use into one sprite. Just drop the files in the `img/sprite` folder and the sprite will be generated as `dist/img/sprite/sprite.svg`.
 
 ## Browser sync
 
@@ -260,7 +261,7 @@ drupal_project/
 ├── themes/
 |   └── custom/
 |     └── custom_theme/
-|         ├── scss/
+|         ├── css/
 |         │   └── main.scss
 |         ├── js/
 |         │   └── main.js
@@ -278,7 +279,7 @@ As soon as Buildozer detects a linting configuration file, linting will be enabl
 
 ```text
 project/
-├── scss/
+├── css/
 │   └── …
 ├── js/
 │   └── …
@@ -295,7 +296,7 @@ Apart from just javascript linting, Buildozer also provides CSS linting with [st
 
 ```text
 project/
-├── scss/
+├── css/
 │   └── …
 ├── js/
 │   └── …
