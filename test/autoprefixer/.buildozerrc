@@ -1,0 +1,12 @@
+src_base_path: ./
+dest_base_path: ./
+img: []
+js: []
+js-concat: []
+svg-sprite: []
+browsersync:
+  server: null # Static sites
+  proxy: null # Dynamic sites
+  reload: null # Glob to watch for reload
+config_search:
+  enabled: false
