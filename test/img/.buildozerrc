@@ -1,0 +1,8 @@
+src_base_path: ./
+dest_base_path: ./
+img:
+  - src: img/**/*.{png,jpg,jpeg,gif,svg}
+    dest: dist/img
+js: []
+js-concat: []
+svg-sprite: []

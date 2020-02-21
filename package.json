@@ -51,6 +51,7 @@
     "lint": "xo",
     "test-default": "node bin/buildozer build --cwd=./test/default",
     "test-css": "node bin/buildozer build --cwd=test/css",
+    "test-img": "node bin/buildozer build --cwd=test/img",
     "test-autoprefixer": "node bin/buildozer build --disable-autoprefixer --cwd=test/autoprefixer",
     "test-env": "node bin/buildozer build --env=development --cwd=test/env",
     "test-copy": "node bin/buildozer build --cwd=test/copy",
