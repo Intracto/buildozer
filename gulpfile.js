@@ -1,6 +1,5 @@
 'use strict';
 
-// Load plugins that are required by multiple tasks
 const gulp = require('gulp');
 const configs = require('./lib/gulp/configs.js');
 
@@ -10,9 +9,6 @@ const copy = require('./lib/gulp/copy.js');
 const {css, cssCompile} = require('./lib/gulp/css.js');
 const {img, imgCompile, svgSprite} = require('./lib/gulp/image.js');
 const {js, jsCompile, jsConcat} = require('./lib/gulp/js.js');
-
-// Change working dir back to initial dir
-process.chdir(process.env.INIT_CWD);
 
 // Watch files
 async function watchFiles() {
