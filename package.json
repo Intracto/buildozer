@@ -52,6 +52,7 @@
     "lint": "xo",
     "test-default": "cd test/default && node ../../bin/buildozer build",
     "test-css": "cd test/css && node ../../bin/buildozer build",
+    "test-img": "cd test/img && node ../../bin/buildozer build",
     "test-env": "cd test/env && node ../../bin/buildozer build --env=development",
     "test-copy": "cd test/copy && node ../../bin/buildozer build",
     "test-sass-module": "cd test/sass-module && node ../../bin/buildozer build",
