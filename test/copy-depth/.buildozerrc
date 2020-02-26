@@ -1,0 +1,3 @@
+copy:
+  - src: src/files/txt/test.txt
+    dest: dist
