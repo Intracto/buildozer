@@ -55,7 +55,6 @@
     "test-autoprefixer": "node bin/buildozer build --disable-autoprefixer --cwd=test/autoprefixer",
     "test-env": "node bin/buildozer build --env=development --cwd=test/env",
     "test-copy": "node bin/buildozer build --cwd=test/copy",
-    "test-copy-depth": "node bin/buildozer build --cwd=test/copy-depth",
     "test-sass-module": "node bin/buildozer build --cwd=test/sass-module",
     "test-config-search": "node bin/buildozer build --cwd=test/config-search",
     "test-stylelint": "node bin/buildozer build --cwd=test/stylelint",
