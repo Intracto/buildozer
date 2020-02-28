@@ -1,3 +1,7 @@
 copy:
-  - src: test.txt
+  - src: src/files/txt/test.txt
     dest: dist
+  - src: src/files/**/test2.txt
+    dest: dist
+  - src: src/dir/**/*
+    dest: dist/dir
