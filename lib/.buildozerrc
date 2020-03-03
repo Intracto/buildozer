@@ -1,4 +1,4 @@
-version: 0.4.2
+version: 0.4.3
 src_base_path: ./
 dest_base_path: ./
 scss:
