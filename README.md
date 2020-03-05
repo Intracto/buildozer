@@ -283,7 +283,7 @@ project/
 │   └── …
 ├── img/
 │   └── …
-├── .buildozer
+├── .buildozerrc
 ├── .eslintignore # Optional ignore file
 └── .eslintrc
 ```
@@ -300,8 +300,8 @@ project/
 │   └── …
 ├── img/
 │   └── …
-├── .buildozer
-└── .stylelint
+├── .buildozerrc
+└── .stylelintrc
 ```
 
 ## Options
