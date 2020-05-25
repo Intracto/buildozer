@@ -1,18 +1,2 @@
-"use strict";
-
-var q = 3;
-
-var test = function test(value) {
-  console.log(value);
-};
-
-test(q);
-"use strict";
-
-var b = 3;
-
-var test2 = function test2(value) {
-  console.log(value);
-};
-
-test2(b);
+define((function(){"use strict";var o;o=3,console.log(o);!function(o){console.log(o)}(3)}));
+//# sourceMappingURL=all.js.map

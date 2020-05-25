@@ -1,0 +1,1 @@
+{"version":3,"file":"test2.js","sources":["../../js/concat/test2.js"],"sourcesContent":["const b = 3;\n\nconst test2 = value => {\n  console.log(value);\n};\n\ntest2(b);\n"],"names":["value","console","log"],"mappings":"gCAAA,IAEcA,EAAAA,EAFJ,EAGRC,QAAQC,IAAIF"}

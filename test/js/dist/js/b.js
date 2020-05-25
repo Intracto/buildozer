@@ -1,1 +1,1 @@
-"use strict";function o(){console.log("b")}o(),module.exports=o;
+define((function(){"use strict";function n(){console.log("b")}return n(),n}));
