@@ -2,6 +2,8 @@
 
 const gulp = require('gulp');
 const configs = require('./lib/gulp/configs.js');
+const {generateBundle} = require('./lib/gulp/js.js');
+const glob = require('util').promisify(require('glob'));
 
 // Get all tasks
 const clean = require('./lib/gulp/clean.js');
@@ -30,15 +32,34 @@ async function watchFiles() {
         cssCompile({src: item.src, dest: item.dest});
       });
 
-      config.js.forEach(j => {
+      config.js.forEach(async j => {
         // Watch JS files, we name the function so that Gulp outputs the correct name
+        const files = await glob(j.src, {absolute: true});
+
+        let dependencyTree = await Promise.all(files.map(async src => {
+          const bundle = await generateBundle({src, cwd: j.cwd});
+          return bundle.watchFiles;
+        }));
+
+        dependencyTree = dependencyTree
+          .flat()
+          // https://github.com/jlmakes/karma-rollup-preprocessor/issues/30
+          .filter(dependency => !dependency.includes('\u0000'));
+
         // eslint-disable-next-line func-names
-        gulp.watch(j.watch, function js() {
-          return jsCompile({src: j.src, dest: j.dest, cwd: config.cwd, browserSync});
+        gulp.watch(dependencyTree, function js() {
+          return Promise.all(files.map(async file => {
+            return jsCompile({
+              src: file,
+              dest: j.dest,
+              cwd: config.cwd,
+              browserSync
+            });
+          }));
         });
 
         // Compile JS once at watch startup
-        jsCompile({src: j.src, dest: j.dest});
+        await Promise.all(files.map(async file => jsCompile({src: file, dest: j.dest, cwd: config.cwd, browserSync})));
       });
 
       config['js-concat'].forEach(js => {
