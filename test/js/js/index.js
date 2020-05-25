@@ -1,2 +1,2 @@
-import foo from "./foo";
-console.log(foo);
+import a from "./a";
+console.log(a);
