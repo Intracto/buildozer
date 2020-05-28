@@ -1,0 +1,21 @@
+src_base_path: ./
+dest_base_path: ./
+img: []
+js:
+  - src:
+    - js/index.js
+    - js/b.js
+    dest: dist/js
+  - src: js/c.js
+    dest: dist/js/c
+js-concat:
+  - src: js/concat/*.js
+    name: all.js
+    dest: dist/js/concat
+svg-sprite: []
+browsersync:
+  server: null # Static sites
+  proxy: null # Dynamic sites
+  reload: null # Glob to watch for reload
+config_search:
+  enabled: false

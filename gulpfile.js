@@ -2,6 +2,8 @@
 
 const gulp = require('gulp');
 const configs = require('./lib/gulp/configs.js');
+const {generateBundle} = require('./lib/gulp/js.js');
+const glob = require('util').promisify(require('glob'));
 
 // Get all tasks
 const clean = require('./lib/gulp/clean.js');
@@ -9,6 +11,20 @@ const copy = require('./lib/gulp/copy.js');
 const {css, cssCompile} = require('./lib/gulp/css.js');
 const {img, imgCompile, svgSprite} = require('./lib/gulp/image.js');
 const {js, jsCompile, jsConcat} = require('./lib/gulp/js.js');
+
+async function getDependencyTree(files, cwd) {
+  let dependencyTree = await Promise.all(files.map(async src => {
+    const bundle = await generateBundle({src, cwd});
+    return bundle.watchFiles;
+  }));
+
+  dependencyTree = dependencyTree
+    .flat()
+    // https://github.com/jlmakes/karma-rollup-preprocessor/issues/30
+    .filter(dependency => !dependency.includes('\u0000'));
+
+  return dependencyTree;
+}
 
 // Watch files
 async function watchFiles() {
@@ -30,21 +46,34 @@ async function watchFiles() {
         cssCompile({src: item.src, dest: item.dest});
       });
 
-      config.js.forEach(j => {
+      config.js.forEach(async j => {
         // Watch JS files, we name the function so that Gulp outputs the correct name
+        const files = await glob(j.src.join(), {absolute: true});
+        const dependencyTree = await getDependencyTree(files, j.cwd);
+
         // eslint-disable-next-line func-names
-        gulp.watch(j.watch, function js() {
-          return jsCompile({src: j.src, dest: j.dest, cwd: config.cwd, browserSync});
+        gulp.watch(dependencyTree, function js() {
+          return Promise.all(files.map(async file => {
+            return jsCompile({
+              src: file,
+              dest: j.dest,
+              cwd: config.cwd,
+              browserSync
+            });
+          }));
         });
 
         // Compile JS once at watch startup
-        jsCompile({src: j.src, dest: j.dest});
+        await Promise.all(files.map(async file => jsCompile({src: file, dest: j.dest, cwd: config.cwd, browserSync})));
       });
 
-      config['js-concat'].forEach(js => {
+      config['js-concat'].forEach(async js => {
         // Watch JS files which need to be concatenated, we name the function so that Gulp outputs the correct name
+        const files = await glob(js.src.join(), {absolute: true});
+        const dependencyTree = await getDependencyTree(files, js.cwd);
+
         // eslint-disable-next-line func-names
-        gulp.watch(js.watch, function concat() {
+        gulp.watch(dependencyTree, function concat() {
           return jsConcat({src: js.src, dest: js.dest, js: js.name, browserSync});
         });
 

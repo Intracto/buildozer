@@ -1,1 +1,1 @@
-"use strict";var q=3,test=function(t){console.log(t)};test(q);
+define((function(){"use strict";var e;e=3,console.log(e)}));
