@@ -20,14 +20,13 @@ async function watchFiles() {
       config.css.forEach(item => {
         // Watch CSS & Sass files, we name the function so that Gulp outputs the correct name
         // Also watch for stylelint changes
-        console.log(item);
         // eslint-disable-next-line func-names
         gulp.watch(item.watch, function css() {
           return cssCompile({src: item.src, dest: item.dest, cwd: config.cwd, browserSync});
         });
 
         // Compile CSS once at watch startup
-        cssCompile({src: item.src, dest: item.dest});
+        cssCompile({src: item.src, dest: item.dest, cwd: config.cwd});
       });
 
       config.js.forEach(j => {
@@ -38,7 +37,7 @@ async function watchFiles() {
         });
 
         // Compile JS once at watch startup
-        jsCompile({src: j.src, dest: j.dest});
+        jsCompile({src: j.src, dest: j.dest, cwd: config.cwd});
       });
 
       config['js-concat'].forEach(js => {
