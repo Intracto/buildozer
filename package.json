@@ -37,7 +37,7 @@
     "rimraf": "^3.0.2",
     "sass": "^1.26.9",
     "stylelint": "^13.6.1",
-    "through2": "^3.0.2",
+    "through2": "^4.0.2",
     "update-notifier": "^4.1.0",
     "vinyl-sourcemaps-apply": "^0.2.1"
   },
