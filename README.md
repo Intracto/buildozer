@@ -323,6 +323,10 @@ Use `buildozer watch --fix` (or build) to fix linting issues that can be fixed a
 
 The environment variable `env` determines whether files need to be minified. Minification will be enabled whenever this variable is set to `production`. If anything else is set, minification will be disabled. By default, the `build` command uses `production`, unless the variable is overridden by something else like `buildozer build --env=development`.
 
+### Gulp options (watch)
+
+All gulp options defined on the [watch page](https://gulpjs.com/docs/en/api/watch#options) can be passed via cli, eg. `buildozer watch --usePolling=true`
+
 ## Contributing to Buildozer
 
 Looking to contribute something to Buildozer? Just have a look at the [open issues](https://github.com/Intracto/buildozer/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc) to check if there's anything interesting. You can also just have a look at the source code to see if there's anything which can be improved.
