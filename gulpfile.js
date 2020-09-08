@@ -1,6 +1,7 @@
 'use strict';
 
 const gulp = require('gulp');
+const {argv} = require('yargs');
 const configs = require('./lib/gulp/configs.js');
 
 // Get all tasks
@@ -21,7 +22,7 @@ async function watchFiles() {
         // Watch CSS & Sass files, we name the function so that Gulp outputs the correct name
         // Also watch for stylelint changes
         // eslint-disable-next-line func-names
-        gulp.watch(item.watch, function css() {
+        gulp.watch(item.watch, argv, function css() {
           return cssCompile({src: item.src, dest: item.dest, cwd: config.cwd, browserSync});
         });
 
@@ -32,7 +33,7 @@ async function watchFiles() {
       config.js.forEach(j => {
         // Watch JS files, we name the function so that Gulp outputs the correct name
         // eslint-disable-next-line func-names
-        gulp.watch(j.watch, function js() {
+        gulp.watch(j.watch, argv, function js() {
           return jsCompile({src: j.src, dest: j.dest, cwd: config.cwd, browserSync});
         });
 
@@ -43,7 +44,7 @@ async function watchFiles() {
       config['js-concat'].forEach(js => {
         // Watch JS files which need to be concatenated, we name the function so that Gulp outputs the correct name
         // eslint-disable-next-line func-names
-        gulp.watch(js.watch, function concat() {
+        gulp.watch(js.watch, argv, function concat() {
           return jsConcat({src: js.src, dest: js.dest, js: js.name, browserSync});
         });
 
@@ -54,7 +55,7 @@ async function watchFiles() {
       config.img.forEach(i => {
         // Watch for image changes, we name the function so that Gulp outputs the correct name
         // eslint-disable-next-line func-names
-        gulp.watch(i.watch, function img() {
+        gulp.watch(i.watch, argv, function img() {
           return imgCompile({src: i.src, dest: i.dest, browserSync});
         });
 
@@ -65,7 +66,7 @@ async function watchFiles() {
       config['svg-sprite'].forEach(sprite => {
         // Watch for SVG sprite changes, we name the function so that Gulp outputs the correct name
         // eslint-disable-next-line func-names
-        gulp.watch(sprite.watch, function svgSpriteCreate() {
+        gulp.watch(sprite.watch, argv, function svgSpriteCreate() {
           return svgSprite({src: sprite.src, dest: sprite.dest, name: sprite.name, browserSync});
         });
 
