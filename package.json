@@ -38,7 +38,7 @@
     "sass": "^1.26.10",
     "stylelint": "^13.6.1",
     "through2": "^4.0.2",
-    "update-notifier": "^4.1.0",
+    "update-notifier": "^5.0.0",
     "vinyl-sourcemaps-apply": "^0.2.1",
     "yargs": "^15.4.1"
   },
