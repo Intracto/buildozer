@@ -1,7 +1,5 @@
-module.exports = () => {
-  return {
-    plugins: {
-      'rfs': {}
-    }
-  }
+module.exports = {
+  plugins: [
+    require('rfs')
+  ]
 };
