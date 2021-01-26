@@ -61,6 +61,7 @@
     "test-copy": "node bin/buildozer build --cwd=test/copy",
     "test-sass-module": "node bin/buildozer build --cwd=test/sass-module",
     "test-config-search": "node bin/buildozer build --cwd=test/config-search",
+    "test-versioning": "node bin/buildozer build --cwd=test/versioning",
     "test-stylelint": "node bin/buildozer build --cwd=test/stylelint",
     "test-eslint": "node bin/buildozer build --cwd=test/eslint",
     "test-fails": "node test/fail-tests.js",
