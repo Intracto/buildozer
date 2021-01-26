@@ -1,6 +1,5 @@
 src_base_path: ./
 dest_base_path: ./
-manifest: ./manifest.json
 css:
   - src: css/**/*.css
     dest: dist/css
