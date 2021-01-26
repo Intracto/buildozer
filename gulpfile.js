@@ -10,6 +10,7 @@ const copy = require('./lib/gulp/copy.js');
 const {css, cssCompile} = require('./lib/gulp/css.js');
 const {img, imgCompile, svgSprite} = require('./lib/gulp/image.js');
 const {js, jsCompile, jsConcat} = require('./lib/gulp/js.js');
+const {versionAssets} = require('./lib/gulp/version.js');
 
 // Watch files
 async function watchFiles() {
@@ -107,7 +108,7 @@ function setEnvironment(cb) {
 }
 
 // Define complex tasks
-const build = gulp.series(setEnvironment, clean, copy, gulp.parallel(css, js, img));
+const build = gulp.series(setEnvironment, clean, copy, gulp.parallel(css, js, img), versionAssets);
 const watch = gulp.series(setEnvironment, clean, copy, watchFiles);
 
 // Export tasks
@@ -118,6 +119,7 @@ exports.js = js;
 exports['js-concat'] = jsConcat;
 exports['svg-sprite'] = svgSprite;
 exports.clean = clean;
+exports.versionAssets = versionAssets;
 exports.setEnvironment = setEnvironment;
 exports.build = build;
 exports.watch = watch;
