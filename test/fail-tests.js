@@ -5,7 +5,7 @@ const chalk = require('chalk');
 
 const tests = ['npm run fail-stylelint', 'npm run fail-eslint'];
 
-tests.forEach(test => {
+for (const test of tests) {
   exec(test, error => {
     if (!error) {
       throw new Error(`\`${test}\` should fail but doesn’t.`);
@@ -13,4 +13,4 @@ tests.forEach(test => {
 
     console.log(`${chalk.green('✓')}  Failtest \`${test}\` succeeded.`);
   });
-});
+}
