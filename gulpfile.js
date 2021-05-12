@@ -21,8 +21,8 @@ async function watchFiles() {
     // Only load browserSync when needed
     const browserSync = configurations[0].browsersync.proxy || configurations[0].browsersync.server ? require('browser-sync').create() : false;
 
-    configurations.forEach((config, i) => {
-      config.scss.forEach(scss => {
+    for (const [i, config] of configurations.entries()) {
+      for (const scss of config.scss) {
         // Watch CSS & Sass files, we name the function so that Gulp outputs the correct name
         // Also watch for stylelint changes
         // eslint-disable-next-line func-names
@@ -32,9 +32,9 @@ async function watchFiles() {
 
         // Compile CSS once at watch startup
         cssCompile({src: scss.src, dest: scss.dest});
-      });
+      }
 
-      config.js.forEach(j => {
+      for (const j of config.js) {
         // Watch JS files, we name the function so that Gulp outputs the correct name
         // eslint-disable-next-line func-names
         gulp.watch(j.watch, argv, function js() {
@@ -43,9 +43,9 @@ async function watchFiles() {
 
         // Compile JS once at watch startup
         jsCompile({src: j.src, dest: j.dest});
-      });
+      }
 
-      config['js-concat'].forEach(js => {
+      for (const js of config['js-concat']) {
         // Watch JS files which need to be concatenated, we name the function so that Gulp outputs the correct name
         // eslint-disable-next-line func-names
         gulp.watch(js.watch, argv, function concat() {
@@ -54,9 +54,9 @@ async function watchFiles() {
 
         // Concat JS files once at watch startup
         jsConcat({src: js.src, dest: js.dest, name: js.name});
-      });
+      }
 
-      config.img.forEach(i => {
+      for (const i of config.img) {
         // Watch for image changes, we name the function so that Gulp outputs the correct name
         // eslint-disable-next-line func-names
         gulp.watch(i.watch, argv, function img() {
@@ -65,9 +65,9 @@ async function watchFiles() {
 
         // Minify images once at watch startup
         imgCompile({src: i.src, dest: i.dest});
-      });
+      }
 
-      config['svg-sprite'].forEach(sprite => {
+      for (const sprite of config['svg-sprite']) {
         // Watch for SVG sprite changes, we name the function so that Gulp outputs the correct name
         // eslint-disable-next-line func-names
         gulp.watch(sprite.watch, argv, function svgSpriteCreate() {
@@ -76,7 +76,7 @@ async function watchFiles() {
 
         // Create SVG sprite once at watch startup
         svgSprite({src: sprite.src, dest: sprite.dest, name: sprite.name});
-      });
+      }
 
       if (i === 0 && browserSync !== false) {
         browserSync.init({
@@ -90,17 +90,17 @@ async function watchFiles() {
           gulp.watch(config.browsersync.reload).on('change', browserSync.reload);
         }
       }
-    });
+    }
   });
 }
 
 function setEnvironment(cb) {
   // Detect env parameter
-  process.argv.forEach(arg => {
+  for (const arg of process.argv) {
     if (arg.startsWith('--env=')) {
       process.env.NODE_ENV = arg.slice(6);
     }
-  });
+  }
 
   // Set to production if env is not set and build is run
   if (process.env.NODE_ENV === undefined && process.argv.includes('build')) {
