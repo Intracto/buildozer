@@ -1,5 +1,3 @@
-'use strict';
-
 const gulp = require('gulp');
 const {argv} = require('yargs');
 const configs = require('./lib/gulp/configs.js');
