@@ -1,12 +1,8 @@
 body {
-  background: blue;
-}
-
-body {
   background: red;
   -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  padding: 2rem;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 2rem
 }
 /*# sourceMappingURL=main.css.map */
