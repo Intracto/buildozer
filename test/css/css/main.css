@@ -1,4 +1,16 @@
+@font-face {
+  font-family: "MyFont";
+  font-style: normal;
+  src: url("myfont.woff");
+}
+
+:root {
+  --myproperty: "MyFont";
+}
+
 select {
   /* Comment */
   appearance: none;
+  /* The @font-face properties should be kept, even when only included with a custom property */
+  font-family: var(--myproperty);
 }
