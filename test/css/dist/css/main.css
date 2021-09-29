@@ -1,1 +1,1 @@
-select{-webkit-appearance:none;-moz-appearance:none;appearance:none}
+@font-face{font-family:MyFont;font-style:normal;src:url(myfont.woff)}:root{--myproperty:"MyFont"}select{-webkit-appearance:none;-moz-appearance:none;appearance:none;font-family:var(--myproperty)}
