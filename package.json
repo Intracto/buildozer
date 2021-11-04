@@ -69,7 +69,7 @@
     "gulpfile.js"
   ],
   "engines": {
-    "node": ">=10"
+    "node": ">=12"
   },
   "author": "Martijn Cuppens <martijn.cuppens@gmail.com>",
   "license": "MIT",
