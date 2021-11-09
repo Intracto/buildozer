@@ -12,7 +12,7 @@ Buildozer is a simple build system to compile Sass, minify images or SVGs and co
 - [Installation](#installation)
 - [Commands](#commands)
 - [Order of script execution](#order-of-script-execution)
-- [Defaultt folder structure](#default-folder-structure)
+- [Default folder structure](#default-folder-structure)
 - [Customizing the folder structure](#customizing-the-folder-structure)
 - [Browserslist](#browserslist)
 - [PostCSS plugins](#postcss-plugins)
